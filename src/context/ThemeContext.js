@@ -7,7 +7,7 @@ export const ThemeProvider = ({ children }) => {
     // Check if user has a saved preference
     const savedTheme = localStorage.getItem('theme');
     // Check if user's system prefers dark mode
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: light)').matches;
     return savedTheme ? savedTheme === 'dark' : prefersDark;
   });
 

@@ -1,14 +1,14 @@
 import React from 'react';
 
 const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) => (
-  <div className="relative flex flex-col md:flex-row gap-10 pb-16 last:pb-0">
+  <div className="relative flex flex-col md:flex-row gap-10 pb-24 md:pb-16 last:pb-0">
     {/* Year marker - centered above on mobile, hidden on desktop */}
-    <div className="md:hidden absolute left-1/2 -translate-x-1/2 bg-indigo-600 dark:bg-indigo-500 text-white px-2 py-1 rounded text-sm">
+    <div className="md:hidden absolute left-1/2 -translate-x-1/2 -top-2 bg-indigo-600 dark:bg-indigo-500 text-white px-3 py-1 rounded text-sm z-10">
       {dateRange}
     </div>
 
     {/* Content wrapper */}
-    <div className="flex w-full">
+    <div className="flex w-full mt-8 md:mt-0">
       {/* Left side (Education) */}
       <div className={`w-1/2 pr-8 ${isEducation ? '' : 'invisible'}`}>
         {isEducation && (
@@ -31,7 +31,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
       </div>
 
       {/* Center line with dot */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full">
+      <div className="absolute left-1/2 -translate-x-1/2 top-8 md:top-0 h-[calc(100%-2rem)] md:h-full">
         {/* Vertical line */}
         <div className="absolute w-0.5 h-full bg-gray-200 dark:bg-gray-700 left-1/2 -translate-x-1/2">
           <div className="absolute w-0.5 h-1/2 bg-indigo-500 dark:bg-indigo-400"></div>

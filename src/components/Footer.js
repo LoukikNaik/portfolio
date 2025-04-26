@@ -8,12 +8,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-300 dark:text-gray-400">
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} Loukik Naik. All rights reserved.
             </p>
           </div>
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/loukiknaik"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
@@ -21,7 +21,7 @@ const Footer = () => {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/loukiknaik"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
@@ -29,7 +29,7 @@ const Footer = () => {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/loukiknaik"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors"

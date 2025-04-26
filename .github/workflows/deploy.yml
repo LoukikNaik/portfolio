@@ -30,6 +30,9 @@ jobs:
         env:
           CI: false
 
+      - name: Set Custom Domain
+        run: echo "portfolio.loukik.dev" > ./build/CNAME
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

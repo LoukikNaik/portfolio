@@ -4,7 +4,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const Projects = () => {
   const projects = [
     {
-      title: 'Project 1',
+      title: 'Project 1(coming soon)',
       description: 'A brief description of your first project. What problems did it solve? What technologies did you use?',
       image: 'project1.jpg',
       technologies: ['React', 'Node.js', 'MongoDB'],
@@ -12,7 +12,7 @@ const Projects = () => {
       live: 'https://project1-demo.com',
     },
     {
-      title: 'Project 2',
+      title: 'Project 2(coming soon)',
       description: 'Description of your second project. Highlight the key features and your role in development.',
       image: 'project2.jpg',
       technologies: ['Vue.js', 'Express', 'PostgreSQL'],

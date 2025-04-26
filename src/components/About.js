@@ -69,38 +69,54 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
 const About = () => {
   const timelineData = [
     {
-      dateRange: 'Jan 2022 - Present',
-      endDate: new Date('2024-03-19'), // Current date for 'Present'
-      title: 'Senior Developer',
-      subtitle: 'Tech Company Inc.',
-      description: 'Leading development team in creating innovative solutions and mentoring junior developers. Implemented key features that increased user engagement by 40%.',
+      dateRange: 'Jan 2025 - Present',
+      endDate: new Date(),
+      title: 'Machine Learning Engineer',
+      subtitle: 'Plainsight Technologies Inc.',
+      description: 'Contributing to the development of production-ready computer vision solutions. Built scalable FastAPI endpoints for real-time image segmentation using Meta SAM and MobileSAM models. Architecting ML model training and deployment pipelines.',
       isEducation: false
     },
     {
-      dateRange: 'Mar 2020 - Dec 2021',
-      endDate: new Date('2021-12-31'),
-      title: 'Full Stack Developer',
-      subtitle: 'Web Solutions Ltd.',
-      description: 'Developed and maintained multiple client projects using React, Node.js, and AWS. Reduced loading times by 60% through optimization.',
-      isEducation: false
-    },
-    {
-      dateRange: 'Sep 2016 - May 2020',
-      endDate: new Date('2020-05-31'),
-      title: "Bachelor's in Computer Science",
-      subtitle: 'University Name',
-      description: 'Graduated with honors, focused on web technologies and artificial intelligence. Led the university web development club.',
+      dateRange: 'Sep 2023 - Dec 2024',
+      endDate: new Date('2023-09-31'),
+      title: "MS in Computer Science",
+      subtitle: 'University of California San Diego',
+      description: 'Specialized in Machine Learning and Computer Vision. Completed advanced coursework in Deep Learning, Computer Vision, and Distributed Systems. GPA: 3.9/4.0',
       isEducation: true
     },
     {
-      dateRange: 'Jun 2019 - Feb 2020',
-      endDate: new Date('2020-02-28'),
-      title: 'Junior Developer',
-      subtitle: 'Startup Name',
-      description: 'Started career as a frontend developer, working with React and TypeScript. Built responsive web applications for various clients.',
+      dateRange: 'June 2024 - Dec 2024',
+      endDate: new Date('2024-12-15'),
+      title: 'Machine Learning Intern',
+      subtitle: 'Plainsight Technologies Inc.',
+      description: 'Engineered an automated video processing pipeline using Kubeflow. Implemented end-to-end automation for video ingestion and processing, significantly reducing manual intervention.',
+      isEducation: false
+    },
+    {
+      dateRange: 'Feb 2023 - May 2023',
+      endDate: new Date('2023-02-31'),
+      title: 'AI Developer Intern',
+      subtitle: 'Lab Systems(I) Pvt Ltd.',
+      description: 'Enhanced software performance through advanced object and text recognition techniques. Implemented solutions using PyTesseract, EasyOCR, YOLO, and MediaPipe for improved accuracy.',
+      isEducation: false
+    },
+    {
+      dateRange: 'Aug 2019 - May 2023',
+      endDate: new Date('2019-08-31'),
+      title: "Bachelor's in Computer Engineering",
+      subtitle: 'Mumbai University',
+      description: 'Graduated with Department Rank 1 (CGPA: 9.71/10.0). Led the Competitive Programming Club and served on the National Service Scheme core team. Focus on algorithms and software engineering.',
+      isEducation: true
+    },
+    {
+      dateRange: 'Jul 2022 - Aug 2022',
+      endDate: new Date('2022-07-28'),
+      title: 'SWE Intern',
+      subtitle: 'Hexaview Technologies Inc.',
+      description: 'Developed and tested Android applications for client projects. Implemented automated testing strategies, achieving 20% improvement in code coverage.',
       isEducation: false
     }
-  ].sort((a, b) => b.endDate - a.endDate); // Sort by end date, most recent first
+  ].sort((a, b) => b.endDate - a.endDate);
 
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
@@ -110,23 +126,21 @@ const About = () => {
         </h2>
         <div className="max-w-6xl mx-auto">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12">
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              I'm a passionate developer with a strong foundation in web development
-              and a keen eye for design. With experience in both frontend and
-              backend technologies, I love creating seamless user experiences that
-              solve real-world problems.
+            <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+              Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build scalable AI solutions 
+              that bridge the gap between research and production. My expertise lies in developing efficient computer vision 
+              systems that solve real-world challenges.
             </p>
-            <p className="text-gray-600 dark:text-gray-300">
-              My journey in tech started with [Your Background] and since then,
-              I've worked on various projects that have helped me develop a
-              well-rounded skill set. I'm particularly interested in [Your
-              Interests/Specializations].
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+              With a Master's from UC San Diego and experience at Plainsight Technologies, I combine strong theoretical 
+              foundations with practical engineering skills. I'm passionate about creating AI systems that are not just 
+              powerful, but also reliable and production-ready.
             </p>
           </div>
 
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-              My Journey
+              Professional Journey
             </h3>
             <div className="flex justify-center gap-12 text-sm text-gray-600 dark:text-gray-300">
               <span>← Education</span>

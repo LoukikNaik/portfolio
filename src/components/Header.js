@@ -22,6 +22,7 @@ const Header = () => {
     e.preventDefault();
     if (link.isPage) {
       navigate(link.href);
+      window.scrollTo(0, 0);
     } else {
       // If we're not on the home page, navigate to home first
       if (location.pathname !== '/') {
@@ -49,6 +50,10 @@ const Header = () => {
       return (
         <Link
           to={link.href}
+          onClick={() => {
+            setIsOpen(false);
+            window.scrollTo(0, 0);
+          }}
           className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
         >
           {link.name}

@@ -140,7 +140,7 @@ const About = () => {
 
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-              Professional Journey
+              Professional Timeline
             </h3>
             <div className="flex justify-center gap-12 text-sm text-gray-600 dark:text-gray-300">
               <span>← Education</span>

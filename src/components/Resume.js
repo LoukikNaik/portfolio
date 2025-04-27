@@ -19,7 +19,7 @@ const options = {
 
 const Resume = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const driveLink = "https://drive.google.com/file/d/1fd6LJSOxpy6GF0_18yXg85gVDsipP8Hd/view?usp=sharing";
+  const driveLink = "https://drive.google.com/file/d/1PTlXEGpKmbTmfzYMXHFbf-HKpGavvl3m/view?usp=sharing";
 
   useEffect(() => {
     const handleResize = () => {

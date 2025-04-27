@@ -1,0 +1,126 @@
+.react-pdf__Page {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  position: relative !important;
+  display: flex;
+  justify-content: center;
+  background: white !important;
+}
+
+.react-pdf__Page__canvas {
+  margin: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: block;
+  background: white !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.pdf-page {
+  position: relative !important;
+  display: flex;
+  justify-content: center;
+  background: white !important;
+}
+
+/* Text layer */
+.react-pdf__Page__textContent {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  user-select: text;
+  transform-origin: 0 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.textLayer {
+  position: absolute;
+  text-align: initial;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 1;
+  line-height: 1;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.textLayer span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+/* Annotation layer positioning */
+.react-pdf__Page__annotations.annotationLayer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Make annotations clickable */
+.annotationLayer {
+  pointer-events: auto !important;
+}
+
+.annotationLayer .linkAnnotation {
+  position: absolute !important;
+  transform-origin: 0 0;
+}
+
+.annotationLayer .linkAnnotation > a {
+  position: absolute !important;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer !important;
+  color: transparent !important;
+  background: transparent !important;
+}
+
+.annotationLayer .linkAnnotation > a:hover {
+  opacity: 0.2;
+  background: #ff0 !important;
+  box-shadow: 0 2px 10px #ff0;
+}
+
+/* Container styles */
+.pdf-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent !important;
+}
+
+.pdf-container::-webkit-scrollbar {
+  display: none;
+}
+
+.resume-section {
+  position: relative;
+  padding-top: 110px !important;
+  padding-bottom: 30px !important;
+} 

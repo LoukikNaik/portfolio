@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
 
@@ -7,12 +8,34 @@ const Header = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   const links = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/#about' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Skills', href: '/#skills' },
+    { name: 'Contact', href: '/#contact' },
+    { name: 'Resume', href: '/resume', isPage: true },
   ];
+
+  const renderLink = (link) => {
+    if (link.isPage) {
+      return (
+        <Link
+          to={link.href}
+          className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          {link.name}
+        </Link>
+      );
+    }
+    return (
+      <a
+        href={link.href}
+        className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+      >
+        {link.name}
+      </a>
+    );
+  };
 
   return (
     <header className="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-200">
@@ -32,13 +55,7 @@ const Header = () => {
           {/* Desktop Navigation - Right side */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                {link.name}
-              </a>
+              <div key={link.name}>{renderLink(link)}</div>
             ))}
           </div>
 
@@ -58,14 +75,9 @@ const Header = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
+                <div key={link.name} className="block px-3 py-2" onClick={() => setIsOpen(false)}>
+                  {renderLink(link)}
+                </div>
               ))}
             </div>
           </div>

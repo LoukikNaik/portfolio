@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const links = [
     { name: 'Home', href: '/#home' },
@@ -15,6 +17,32 @@ const Header = () => {
     { name: 'Contact', href: '/#contact' },
     { name: 'Resume', href: '/resume', isPage: true },
   ];
+
+  const handleNavigation = (e, link) => {
+    e.preventDefault();
+    if (link.isPage) {
+      navigate(link.href);
+    } else {
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete before scrolling
+        setTimeout(() => {
+          const element = document.querySelector(link.href.replace('/', ''));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // If we're already on home page, just scroll
+        const element = document.querySelector(link.href.replace('/', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+    setIsOpen(false);
+  };
 
   const renderLink = (link) => {
     if (link.isPage) {
@@ -30,6 +58,7 @@ const Header = () => {
     return (
       <a
         href={link.href}
+        onClick={(e) => handleNavigation(e, link)}
         className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
       >
         {link.name}
@@ -75,7 +104,7 @@ const Header = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {links.map((link) => (
-                <div key={link.name} className="block px-3 py-2" onClick={() => setIsOpen(false)}>
+                <div key={link.name} className="block px-3 py-2">
                   {renderLink(link)}
                 </div>
               ))}

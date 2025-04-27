@@ -77,20 +77,20 @@ const About = () => {
       isEducation: false
     },
     {
-      dateRange: 'Sep 2023 - Dec 2024',
-      endDate: new Date('2023-09-31'),
-      title: "MS in Computer Science",
-      subtitle: 'University of California San Diego',
-      description: 'Specialized in Machine Learning and Computer Vision. Completed advanced coursework in Deep Learning, Computer Vision, and Distributed Systems. GPA: 3.9/4.0',
-      isEducation: true
-    },
-    {
       dateRange: 'June 2024 - Dec 2024',
       endDate: new Date('2024-12-15'),
       title: 'Machine Learning Intern',
       subtitle: 'Plainsight Technologies Inc.',
       description: 'Engineered an automated video processing pipeline using Kubeflow. Implemented end-to-end automation for video ingestion and processing, significantly reducing manual intervention.',
       isEducation: false
+    },
+    {
+      dateRange: 'Sep 2023 - Dec 2024',
+      endDate: new Date('2024-12-14'),
+      title: "MS in Computer Science",
+      subtitle: 'University of California San Diego',
+      description: 'Specialized in Machine Learning and Computer Vision. Completed advanced coursework in Deep Learning, Computer Vision, and Distributed Systems. GPA: 3.9/4.0',
+      isEducation: true
     },
     {
       dateRange: 'Feb 2023 - May 2023',
@@ -101,6 +101,14 @@ const About = () => {
       isEducation: false
     },
     {
+      dateRange: 'Jul 2022 - Aug 2022',
+      endDate: new Date('2022-07-28'),
+      title: 'SWE Intern',
+      subtitle: 'Hexaview Technologies Inc.',
+      description: 'Developed and tested Android applications for client projects. Implemented automated testing strategies, achieving 20% improvement in code coverage.',
+      isEducation: false
+    },
+    {
       dateRange: 'Aug 2019 - May 2023',
       endDate: new Date('2019-08-31'),
       title: "Bachelor's in Computer Engineering",
@@ -108,14 +116,6 @@ const About = () => {
       description: 'Graduated with Department Rank 1 (CGPA: 9.71/10.0). Led the Competitive Programming Club and served on the National Service Scheme core team. Focus on algorithms and software engineering.',
       isEducation: true
     },
-    {
-      dateRange: 'Jul 2022 - Aug 2022',
-      endDate: new Date('2022-07-28'),
-      title: 'SWE Intern',
-      subtitle: 'Hexaview Technologies Inc.',
-      description: 'Developed and tested Android applications for client projects. Implemented automated testing strategies, achieving 20% improvement in code coverage.',
-      isEducation: false
-    }
   ].sort((a, b) => b.endDate - a.endDate);
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineDownload } from 'react-icons/ai';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
@@ -18,6 +19,7 @@ const options = {
 
 const Resume = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const driveLink = "https://drive.google.com/file/d/1fd6LJSOxpy6GF0_18yXg85gVDsipP8Hd/view?usp=sharing";
 
   useEffect(() => {
     const handleResize = () => {
@@ -86,7 +88,7 @@ const Resume = () => {
             </Document>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 flex gap-4">
             <Button
               variant="primary"
               href={resumePDF}
@@ -96,6 +98,16 @@ const Resume = () => {
             >
               <AiOutlineDownload className="mr-2" />
               Download CV
+            </Button>
+            <Button
+              variant="primary"
+              href={driveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
+            >
+              <FaExternalLinkAlt className="mr-2" />
+              View on Drive
             </Button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const TypeWriter = ({ words = [], typingSpeed = 150, deletingSpeed = 100, pauseTime = 2000 }) => {
+const TypeWriter = ({ words = [], typingSpeed = 10000, deletingSpeed = 10000, pauseTime = 1 }) => {
   const [text, setText] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);

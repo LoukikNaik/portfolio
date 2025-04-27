@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.98f99c59.css",
-    "main.js": "/static/js/main.18ad276e.js",
+    "main.js": "/static/js/main.62d89dcf.js",
     "static/media/loukik.jpeg": "/static/media/loukik.7485862c4a8d411f0a54.jpeg",
     "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.5d8be911187d4106f8c9.pdf",
     "index.html": "/index.html",
     "main.98f99c59.css.map": "/static/css/main.98f99c59.css.map",
-    "main.18ad276e.js.map": "/static/js/main.18ad276e.js.map"
+    "main.62d89dcf.js.map": "/static/js/main.62d89dcf.js.map"
   },
   "entrypoints": [
     "static/css/main.98f99c59.css",
-    "static/js/main.18ad276e.js"
+    "static/js/main.62d89dcf.js"
   ]
 }

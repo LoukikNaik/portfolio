@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { motion } from 'framer-motion';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import resumePDF from '../assets/Loukik_resume.pdf';
@@ -19,7 +20,7 @@ const options = {
 
 const Resume = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const driveLink = "https://drive.google.com/file/d/1PTlXEGpKmbTmfzYMXHFbf-HKpGavvl3m/view?usp=sharing";
+  const driveLink = "https://drive.google.com/file/d/1fd6LJSOxpy6GF0_18yXg85gVDsipP8Hd/view?usp=sharing";
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,40 +41,68 @@ const Resume = () => {
     return 1.0;                       // Mobile
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 pt-20 pb-16">
-      <Container fluid className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center">
-          {/* <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-8">
-            Resume
-          </h1> */}
-          
-          {/* <div className="mb-8">
-            <Button
-              variant="primary"
-              href={resumePDF}
-              target="_blank"
-              download="Loukik_Naik_Resume.pdf"
-              className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
-            >
-              <AiOutlineDownload className="mr-2" />
-              Download CV
-            </Button>
-          </div> */}
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
 
-          <div className="w-full flex justify-center pdf-container">
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <motion.div 
+      className="min-h-screen bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 pt-20 pb-16"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Container fluid className="max-w-6xl mx-auto px-4">
+        <motion.div 
+          className="flex flex-col items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div 
+            className="w-full flex justify-center pdf-container"
+            variants={itemVariants}
+          >
             <Document
               file={resumePDF}
               className="d-flex justify-content-center"
               loading={
-                <div className="text-center py-8 text-gray-600 dark:text-gray-300">
+                <motion.div 
+                  className="text-center py-8 text-gray-600 dark:text-gray-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
                   Loading PDF...
-                </div>
+                </motion.div>
               }
               error={
-                <div className="text-center py-8 text-red-600 dark:text-red-400">
+                <motion.div 
+                  className="text-center py-8 text-red-600 dark:text-red-400"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
                   Error loading PDF. Please try downloading instead.
-                </div>
+                </motion.div>
               }
               options={options}
             >
@@ -86,33 +115,40 @@ const Resume = () => {
                 quality={100}
               />
             </Document>
-          </div>
+          </motion.div>
 
-          <div className="mt-8 flex gap-4">
-            <Button
-              variant="primary"
-              href={resumePDF}
-              target="_blank"
-              download="Loukik_Naik_Resume.pdf"
-              className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
-            >
-              <AiOutlineDownload className="mr-2" />
-              Download CV
-            </Button>
-            <Button
-              variant="primary"
-              href={driveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
-            >
-              <FaExternalLinkAlt className="mr-2" />
-              View on Drive
-            </Button>
-          </div>
-        </div>
+          <motion.div 
+            className="mt-8 flex gap-4"
+            variants={itemVariants}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                variant="primary"
+                href={resumePDF}
+                target="_blank"
+                download="Loukik_Naik_Resume.pdf"
+                className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
+              >
+                <AiOutlineDownload className="mr-2" />
+                Download CV
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                variant="primary"
+                href={driveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
+              >
+                <FaExternalLinkAlt className="mr-2" />
+                View on Drive
+              </Button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

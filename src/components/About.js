@@ -1,18 +1,31 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) => (
-  <div className="relative flex flex-col md:flex-row gap-10 pb-24 md:pb-16 last:pb-0">
+  <motion.div 
+    className="relative flex flex-col md:flex-row gap-10 pb-24 md:pb-16 last:pb-0"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+  >
     {/* Year marker - centered above on mobile, hidden on desktop */}
-    <div className="md:hidden absolute left-1/2 -translate-x-1/2 -top-2 bg-indigo-600 dark:bg-indigo-500 text-white px-3 py-1 rounded text-sm z-10">
+    <motion.div 
+      className="md:hidden absolute left-1/2 -translate-x-1/2 -top-2 bg-indigo-600 dark:bg-indigo-500 text-white px-3 py-1 rounded text-sm z-10"
+      whileHover={{ scale: 1.05 }}
+    >
       {dateRange}
-    </div>
+    </motion.div>
 
     {/* Content wrapper */}
     <div className="flex w-full mt-8 md:mt-0">
       {/* Left side (Education) */}
       <div className={`w-1/2 pr-8 ${isEducation ? '' : 'invisible'}`}>
         {isEducation && (
-          <div className="text-right">
+          <motion.div 
+            className="text-right"
+            whileHover={{ x: -5 }}
+          >
             {/* Desktop year display */}
             <div className="hidden md:block text-indigo-600 dark:text-indigo-400 font-semibold mb-1">
               {dateRange}
@@ -26,7 +39,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <p className="text-sm text-gray-600 dark:text-gray-300">
               {description}
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
 
@@ -34,18 +47,32 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
       <div className="absolute left-1/2 -translate-x-1/2 top-8 md:top-0 h-[calc(100%-2rem)] md:h-full">
         {/* Vertical line */}
         <div className="absolute w-0.5 h-full bg-gray-200 dark:bg-gray-700 left-1/2 -translate-x-1/2">
-          <div className="absolute w-0.5 h-1/2 bg-indigo-500 dark:bg-indigo-400"></div>
+          <motion.div 
+            className="absolute w-0.5 h-1/2 bg-indigo-500 dark:bg-indigo-400"
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          ></motion.div>
         </div>
         {/* Dot */}
-        <div className="absolute w-4 h-4 left-1/2 -translate-x-1/2 top-4 rounded-full border-2 border-indigo-500 dark:border-indigo-400 bg-white dark:bg-gray-900">
-          <div className="absolute w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute w-5 h-5 left-1/2 -translate-x-1/2 top-12 md:top-1/2 -translate-y-1/2 rounded-full border-2 border-indigo-500 dark:border-indigo-400 bg-white dark:bg-gray-900 z-10 flex items-center justify-center">
+          <motion.div 
+            className="w-2.5 h-2.5 rounded-full bg-indigo-500 dark:bg-indigo-400"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+          ></motion.div>
         </div>
       </div>
 
       {/* Right side (Experience) */}
       <div className={`w-1/2 pl-8 ${isEducation ? 'invisible' : ''}`}>
         {!isEducation && (
-          <div>
+          <motion.div
+            whileHover={{ x: 5 }}
+          >
             {/* Desktop year display */}
             <div className="hidden md:block text-indigo-600 dark:text-indigo-400 font-semibold mb-1">
               {dateRange}
@@ -59,11 +86,11 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <p className="text-sm text-gray-600 dark:text-gray-300">
               {description}
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const About = () => {
@@ -118,14 +145,36 @@ const About = () => {
     },
   ].sort((a, b) => b.endDate - a.endDate);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-200">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
+        <motion.h2 
+          className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           About Me
-        </h2>
+        </motion.h2>
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12">
+          <motion.div 
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
               Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build scalable AI solutions 
               that bridge the gap between research and production. My expertise lies in developing efficient computer vision 
@@ -136,9 +185,15 @@ const About = () => {
               foundations with practical engineering skills. I'm passionate about creating AI systems that are not just 
               powerful, but also reliable and production-ready.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
               Professional Timeline
             </h3>
@@ -146,10 +201,16 @@ const About = () => {
               <span>← Education</span>
               <span>Experience →</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Timeline container */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {timelineData.map((item, index) => (
               <TimelineItem
                 key={index}
@@ -160,7 +221,7 @@ const About = () => {
                 isEducation={item.isEducation}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

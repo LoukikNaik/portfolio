@@ -169,7 +169,7 @@ const Skills = () => {
               key={index}
               name={skill.name}
               icon={skill.icon}
-              level={skill.level}
+              // level={skill.level}
               color={skill.color}
             />
           ))}

@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 import ppgImage from '../assets/ppg.png';
 import teslaImage from '../assets/tesla.png';
 import mnistImage from '../assets/mnist.png';
+import surfstoreImage from '../assets/surfstore.jpg';
+import tritonHttpImage from '../assets/tritonhttp.jpg';
 
 const Projects = () => {
   const projects = [
     {
       title: 'Surfstore: Distributed File Storage System',
       description: 'Implemented a horizontally scalable file storage system using Go and gRPC. Features multiple block/metadata servers and Raft consensus for reliable data synchronization across servers.',
-      image: null,
+      image: surfstoreImage,
       technologies: ['Go', 'gRPC', 'Distributed Systems', 'Raft', 'Protocol Buffers'],
       github: 'https://github.com/LoukikNaik/Surfstore-Distributed-File-Storage-System.git',
     },
@@ -26,7 +28,7 @@ const Projects = () => {
     {
       title: 'TritonHTTP Server',
       description: 'Built a concurrent HTTP server in Go supporting multiple virtual hosts with distinct document roots. Handles parallel client connections using goroutines and implements custom HTTP response handling.',
-      image: null,
+      image: tritonHttpImage,
       technologies: ['Go', 'HTTP', 'Concurrency', 'Goroutines', 'Server'],
       github: 'https://github.com/LoukikNaik/TritonHttp',
     },

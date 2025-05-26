@@ -6,6 +6,7 @@ import teslaImage from '../assets/tesla.png';
 import mnistImage from '../assets/mnist.png';
 import surfstoreImage from '../assets/surfstore.jpg';
 import tritonHttpImage from '../assets/tritonhttp.jpg';
+import emailClassifierImage from '../assets/email.jpg';
 
 const Projects = () => {
   const projects = [
@@ -23,6 +24,14 @@ const Projects = () => {
       image: ppgImage,
       technologies: ['Scikit-learn', 'Pandas', 'ETL', 'Machine Learning', 'Healthcare Analytics'],
       live: 'https://drive.google.com/file/d/1c3mTvv48zX0mRZf2zoSyrgkbfemB52xO/view',
+    },
+
+    {
+      title: 'Prompt Based Email Classifier',
+      description: 'Developed an LLM-powered email classification system using custom prompts for categorization and importance detection. Integrated Ollama & Gemini API via LangChain with multithreaded optimization and Gmail API integration for privacy-focused email processing.',
+      image: emailClassifierImage,
+      technologies: ['LLMs', 'Prompt Engineering', 'LangChain', 'Gmail API', 'Multithreading'],
+      github: 'https://github.com/LoukikNaik/email-classification-wrapper.git',
     },
 
     {

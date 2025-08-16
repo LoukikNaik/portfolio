@@ -54,7 +54,7 @@ const Header = () => {
             setIsOpen(false);
             window.scrollTo(0, 0);
           }}
-          className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium"
+          className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium block w-full"
         >
           {link.name}
         </Link>
@@ -64,7 +64,7 @@ const Header = () => {
       <a
         href={link.href}
         onClick={(e) => handleNavigation(e, link)}
-        className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium"
+        className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium block w-full"
       >
         {link.name}
       </a>
@@ -112,7 +112,7 @@ const Header = () => {
             <div className="md:hidden mt-4 pt-4 border-t border-white/20">
               <div className="space-y-2">
                 {links.map((link) => (
-                  <div key={link.name} className="block px-4 py-3 rounded-xl glass-hover nav-link">
+                  <div key={link.name} className="block px-4 py-3 rounded-xl touch-target">
                     {renderLink(link)}
                   </div>
                 ))}

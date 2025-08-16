@@ -178,25 +178,71 @@ html {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
-.nav-link:hover::before {
-  left: 100%;
+/* Only apply shimmer effect on hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::before {
+    left: 100%;
+  }
 }
 
-/* Improved glass hover states */
+/* Touch devices get shimmer on active instead */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:active::before {
+    left: 100%;
+  }
+}
+
+/* Improved glass hover states - only on devices that support hover */
 .glass-hover {
   transition: all 0.3s ease;
   border-radius: 0.75rem;
 }
 
-.glass-hover:hover {
-  background: rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* Only apply hover effects on devices that actually support hover (not touch) */
+@media (hover: hover) and (pointer: fine) {
+  .glass-hover:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
 }
 
-.dark .glass-hover:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+/* Touch device active state instead of hover */
+@media (hover: none) and (pointer: coarse) {
+  .glass-hover:active {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .glass-hover:active {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Touch-friendly mobile navigation */
+.touch-target {
+  min-height: 44px; /* Minimum touch target size */
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-radius: 0.75rem;
+  -webkit-tap-highlight-color: transparent; /* Remove iOS highlight */
+}
+
+.touch-target:active {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(0.98);
+}
+
+.dark .touch-target:active {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Enhanced technology bubbles */

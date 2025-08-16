@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.adf177ec.css",
-    "main.js": "/static/js/main.d4a0f853.js",
+    "main.css": "/static/css/main.bb4a302d.css",
+    "main.js": "/static/js/main.a0e9a4e0.js",
     "static/media/tesla.png": "/static/media/tesla.c696c3b349efd8afacbb.png",
     "static/media/loukik.jpeg": "/static/media/loukik.7485862c4a8d411f0a54.jpeg",
     "static/media/email.jpg": "/static/media/email.a8c80d9db912e720252e.jpg",
@@ -11,11 +11,11 @@
     "static/media/ppg.png": "/static/media/ppg.cbe07e37c680023e9da2.png",
     "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.9f95bcd26b691294c1b5.pdf",
     "index.html": "/index.html",
-    "main.adf177ec.css.map": "/static/css/main.adf177ec.css.map",
-    "main.d4a0f853.js.map": "/static/js/main.d4a0f853.js.map"
+    "main.bb4a302d.css.map": "/static/css/main.bb4a302d.css.map",
+    "main.a0e9a4e0.js.map": "/static/js/main.a0e9a4e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.adf177ec.css",
-    "static/js/main.d4a0f853.js"
+    "static/css/main.bb4a302d.css",
+    "static/js/main.a0e9a4e0.js"
   ]
 }

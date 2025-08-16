@@ -129,9 +129,10 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30 scale-110"></div>
               <motion.div
-                className="relative glass-strong rounded-full p-4 float-animation"
+                className="relative glass-strong rounded-full p-4 float-animation w-fit mx-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                style={{ aspectRatio: '1/1' }}
               >
                 <motion.a 
                   href={profileImage} 
@@ -142,7 +143,8 @@ const Hero = () => {
                   <img 
                     src={profileImage} 
                     alt="Profile" 
-                    className="w-80 h-80 lg:w-96 lg:h-96 mx-auto rounded-full object-cover border-4 border-white/20" 
+                    className="w-80 h-80 lg:w-80 lg:h-80 mx-auto rounded-full object-cover border-4 border-white/20" 
+                    style={{ aspectRatio: '1/1' }}
                   />
                 </motion.a>
               </motion.div>

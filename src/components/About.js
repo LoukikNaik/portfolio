@@ -37,7 +37,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <h4 className="text-md text-sky-700 dark:text-sky-300 mb-3 font-medium">
               {subtitle}
             </h4>
-            <p className="text-sm text-on-glass-muted leading-relaxed">
+            <p className="text-sm text-on-glass-muted leading-relaxed text-justify">
               {description}
             </p>
           </motion.div>
@@ -86,7 +86,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <h4 className="text-md text-slate-700 dark:text-slate-300 mb-3 font-medium">
               {subtitle}
             </h4>
-            <p className="text-sm text-on-glass-muted leading-relaxed">
+            <p className="text-sm text-on-glass-muted leading-relaxed text-justify">
               {description}
             </p>
           </motion.div>
@@ -179,12 +179,12 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
-            <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed">
+            <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed text-justify">
               Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build scalable AI solutions 
               that bridge the gap between research and production. My expertise lies in developing efficient computer vision 
               systems that solve real-world challenges.
             </p>
-            <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed">
+            <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed text-justify">
               With a Master's from UC San Diego and experience at Plainsight Technologies, I combine strong theoretical 
               foundations with practical engineering skills. I'm passionate about creating AI systems that are not just 
               powerful, but also reliable and production-ready.

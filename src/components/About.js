@@ -96,7 +96,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
 const About = () => {
   const timelineData = [
     {
-      dateRange: 'Jan 2025 - Present',
+      dateRange: 'Jan 2025 - Aug 2025',
       endDate: new Date(),
       title: 'Machine Learning Engineer',
       subtitle: 'Plainsight Technologies Inc.',

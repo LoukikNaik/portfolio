@@ -194,9 +194,9 @@ const Projects = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded-full text-sm"
+                      className="px-3 py-1 bg-blue-100 dark:bg-gray-600 text-blue-800 dark:text-gray-200 rounded-full text-sm border border-blue-200 dark:border-gray-500 hover:bg-blue-200 dark:hover:bg-gray-500 transition-colors duration-200"
                       variants={techVariants}
-                      whileHover={{ scale: 1.1, backgroundColor: "rgba(99, 102, 241, 0.1)" }}
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2 }}
                     >
                       {tech}

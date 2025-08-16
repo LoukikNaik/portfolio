@@ -3,22 +3,55 @@ import { motion } from 'framer-motion';
 
 const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) => (
   <motion.div 
-    className="relative flex flex-col md:flex-row gap-10 pb-24 md:pb-16 last:pb-0"
+    className="relative pb-16 md:pb-16 last:pb-0"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
-    {/* Year marker - centered above on mobile, hidden on desktop */}
-    <motion.div 
-      className="md:hidden absolute left-1/2 -translate-x-1/2 -top-2 glass rounded-full px-4 py-2 text-on-glass text-sm z-10 font-medium"
-      whileHover={{ scale: 1.05 }}
-    >
-      {dateRange}
-    </motion.div>
+    {/* Mobile Layout - Everything on the right side */}
+    <div className="md:hidden">
+      <div className="flex">
+        {/* Timeline line and dot for mobile */}
+        <div className="flex flex-col items-center mr-6">
+          <div className="w-6 h-6 rounded-full glass z-10 flex items-center justify-center border-2 border-white/20">
+            <motion.div 
+              className={`w-3 h-3 rounded-full ${isEducation ? 'bg-gradient-to-r from-sky-400 to-cyan-400' : 'bg-gradient-to-r from-slate-400 to-slate-500'}`}
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+            ></motion.div>
+          </div>
+          <div className="w-1 flex-1 bg-gradient-to-b from-sky-400 via-cyan-400 to-slate-400 rounded-full opacity-60 mt-2"></div>
+        </div>
+        
+        {/* Content for mobile */}
+        <div className="flex-1">
+          <motion.div 
+            className="glass rounded-2xl p-6"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={`text-sm font-semibold mb-2 ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}>
+              {dateRange}
+            </div>
+            <h3 className="text-lg font-semibold text-on-glass mb-1">
+              {title}
+            </h3>
+            <h4 className={`text-md mb-3 font-medium ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}>
+              {subtitle}
+            </h4>
+            <p className="text-sm text-on-glass-muted leading-relaxed text-justify">
+              {description}
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </div>
 
-    {/* Content wrapper */}
-    <div className="flex w-full mt-8 md:mt-0">
+    {/* Desktop Layout - Split layout */}
+    <div className="hidden md:flex w-full">
       {/* Left side (Education) */}
       <div className={`w-1/2 pr-8 ${isEducation ? '' : 'invisible'}`}>
         {isEducation && (
@@ -28,7 +61,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             transition={{ duration: 0.3 }}
           >
             {/* Desktop year display */}
-            <div className="hidden md:block text-sky-700 dark:text-sky-300 font-semibold mb-2 text-sm">
+            <div className="text-sky-700 dark:text-sky-300 font-semibold mb-2 text-sm">
               {dateRange}
             </div>
             <h3 className="text-lg font-semibold text-on-glass mb-1">
@@ -44,8 +77,8 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
         )}
       </div>
 
-      {/* Center line with dot */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-8 md:top-0 h-[calc(100%-2rem)] md:h-full">
+      {/* Center line with dot for desktop */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full">
         {/* Vertical line */}
         <div className="absolute w-1 h-full bg-gradient-to-b from-sky-400 via-cyan-400 to-slate-400 left-1/2 -translate-x-1/2 rounded-full opacity-60">
           <motion.div 
@@ -57,7 +90,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
           ></motion.div>
         </div>
         {/* Dot */}
-        <div className="absolute w-6 h-6 left-1/2 -translate-x-1/2 top-12 md:top-1/2 -translate-y-1/2 rounded-full glass z-10 flex items-center justify-center border-2 border-white/20">
+        <div className="absolute w-6 h-6 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full glass z-10 flex items-center justify-center border-2 border-white/20">
           <motion.div 
             className={`w-3 h-3 rounded-full ${isEducation ? 'bg-gradient-to-r from-sky-400 to-cyan-400' : 'bg-gradient-to-r from-slate-400 to-slate-500'}`}
             initial={{ scale: 0 }}
@@ -77,7 +110,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             transition={{ duration: 0.3 }}
           >
             {/* Desktop year display */}
-            <div className="hidden md:block text-slate-700 dark:text-slate-300 font-semibold mb-2 text-sm">
+            <div className="text-slate-700 dark:text-slate-300 font-semibold mb-2 text-sm">
               {dateRange}
             </div>
             <h3 className="text-lg font-semibold text-on-glass mb-1">
@@ -215,7 +248,7 @@ const About = () => {
 
           {/* Timeline container */}
           <motion.div 
-            className="relative"
+            className="relative md:relative"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

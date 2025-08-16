@@ -20,24 +20,23 @@ import {
   SiScikitlearn,
 } from 'react-icons/si';
 
-const SkillItem = ({ name, icon: Icon, level, color }) => (
+const SkillItem = ({ name, icon: Icon, color }) => (
   <motion.div
-    className="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+    className="flex flex-col items-center p-6 glass-strong rounded-2xl hover:scale-105 transition-all duration-300 group"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    whileHover={{ scale: 1.05 }}
+    whileHover={{ y: -5 }}
     transition={{ duration: 0.3 }}
   >
     <motion.div
-      className={`text-4xl mb-2 ${color}`}
-      whileHover={{ rotate: 360 }}
-      transition={{ duration: 0.5 }}
+      className={`text-5xl mb-4 ${color}`}
+      whileHover={{ rotate: 360, scale: 1.1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      <Icon size={40} />
+      <Icon size={48} />
     </motion.div>
-    <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">{name}</h3>
-    <span className="text-sm text-gray-600 dark:text-gray-300">{level}</span>
+    <h3 className="text-lg font-bold text-on-glass text-center group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors duration-300">{name}</h3>
   </motion.div>
 );
 
@@ -46,91 +45,76 @@ const Skills = () => {
     {
       name: 'PyTorch',
       icon: SiPytorch,
-      level: 'Advanced',
       color: 'text-red-500',
     },
     {
       name: 'TensorFlow',
       icon: SiTensorflow,
-      level: 'Advanced',
       color: 'text-orange-500',
     },
     {
       name: 'Scikit-learn',
       icon: SiScikitlearn,
-      level: 'Advanced',
       color: 'text-blue-500',
     },
     {
       name: 'Pandas',
       icon: SiPandas,
-      level: 'Advanced',
       color: 'text-indigo-500',
     },
     {
       name: 'Python',
       icon: FaPython,
-      level: 'Advanced',
       color: 'text-blue-500',
     },
     {
       name: 'FastAPI',
       icon: SiFastapi,
-      level: 'Advanced',
       color: 'text-teal-500',
     },
     {
       name: 'Kubernetes',
       icon: SiKubernetes,
-      level: 'Intermediate',
       color: 'text-blue-600',
     },
     {
       name: 'Kubeflow',
       icon: FaCube,
-      level: 'Intermediate',
       color: 'text-blue-400',
     },
     {
       name: 'Google Cloud',
       icon: FaGoogle,
-      level: 'Intermediate',
       color: 'text-blue-500',
     },
     {
       name: 'Docker',
       icon: FaDocker,
-      level: 'Advanced',
       color: 'text-blue-600',
     },
     {
       name: 'Git',
       icon: FaGitAlt,
-      level: 'Advanced',
       color: 'text-red-500',
     },
     {
       name: 'React',
       icon: FaReact,
-      level: 'Intermediate',
       color: 'text-blue-400',
     },
     {
       name: 'Node.js',
       icon: FaNode,
-      level: 'Intermediate',
       color: 'text-green-500',
     },
     {
       name: 'Databases',
       icon: FaDatabase,
-      level: 'Intermediate',
       color: 'text-purple-500',
     },
     {
       name: 'JavaScript',
       icon: FaJs,
-      level: 'Intermediate',
       color: 'text-yellow-500',
     },
   ];
@@ -146,10 +130,10 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <section id="skills" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12"
+          className="text-4xl md:text-5xl font-bold text-center text-on-glass mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -158,7 +142,7 @@ const Skills = () => {
           Skills
         </motion.h2>
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -169,12 +153,15 @@ const Skills = () => {
               key={index}
               name={skill.name}
               icon={skill.icon}
-              level={skill.level}
               color={skill.color}
             />
           ))}
         </motion.div>
       </div>
+      
+      {/* Floating decorative elements */}
+      <div className="absolute top-20 left-20 w-20 h-20 bg-slate-400/10 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-28 h-28 bg-sky-400/10 rounded-full blur-xl animate-pulse delay-1500"></div>
     </section>
   );
 };

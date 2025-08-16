@@ -65,12 +65,23 @@ const Resume = () => {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 pt-20 pb-16"
+      className="min-h-screen pt-32 pb-20 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Container fluid className="max-w-6xl mx-auto px-4">
+      {/* Animated background particles */}
+      <div className="bg-particles"></div>
+      <div className="container mx-auto px-6 relative z-10">
+        {/* <motion.h2 
+          className="text-4xl md:text-5xl font-bold text-center text-on-glass mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Resume
+        </motion.h2> */}
+        
         <motion.div 
           className="flex flex-col items-center"
           variants={containerVariants}
@@ -78,76 +89,80 @@ const Resume = () => {
           animate="visible"
         >
           <motion.div 
-            className="w-full flex justify-center pdf-container"
+            className="w-full flex justify-center mb-8"
             variants={itemVariants}
           >
-            <Document
-              file={resumePDF}
-              className="d-flex justify-content-center"
-              loading={
-                <motion.div 
-                  className="text-center py-8 text-gray-600 dark:text-gray-300"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  Loading PDF...
-                </motion.div>
-              }
-              error={
-                <motion.div 
-                  className="text-center py-8 text-red-600 dark:text-red-400"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  Error loading PDF. Please try downloading instead.
-                </motion.div>
-              }
-              options={options}
-            >
-              <Page 
-                pageNumber={1} 
-                scale={getScale()}
-                className="pdf-page"
-                renderAnnotationLayer={true}
-                renderTextLayer={true}
-                quality={100}
-              />
-            </Document>
+            <div className="glass-strong rounded-3xl p-6 max-w-4xl w-full">
+              <Document
+                file={resumePDF}
+                className="flex justify-center"
+                loading={
+                  <motion.div 
+                    className="text-center py-8 text-on-glass-muted"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    Loading PDF...
+                  </motion.div>
+                }
+                error={
+                  <motion.div 
+                    className="text-center py-8 text-red-600 dark:text-red-400"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    Error loading PDF. Please try downloading instead.
+                  </motion.div>
+                }
+                options={options}
+              >
+                <Page 
+                  pageNumber={1} 
+                  scale={getScale()}
+                  className="pdf-page"
+                  renderAnnotationLayer={true}
+                  renderTextLayer={true}
+                  quality={100}
+                />
+              </Document>
+            </div>
           </motion.div>
 
           <motion.div 
-            className="mt-8 flex gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
             variants={itemVariants}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                variant="primary"
-                href={resumePDF}
-                target="_blank"
-                download="Loukik_Naik_Resume.pdf"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
-              >
-                <AiOutlineDownload className="mr-2" />
-                Download CV
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                variant="primary"
-                href={driveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
-              >
-                <FaExternalLinkAlt className="mr-2" />
-                View on Drive
-              </Button>
-            </motion.div>
+            <motion.a
+              href={resumePDF}
+              target="_blank"
+              download="Loukik_Naik_Resume.pdf"
+              className="glass rounded-2xl px-8 py-4 text-on-glass-muted hover:text-on-glass transition-all duration-300 flex items-center justify-center font-semibold hover:scale-105"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <AiOutlineDownload className="mr-3" size={20} />
+              Download Resume
+            </motion.a>
+            <motion.a
+              href={driveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass rounded-2xl px-8 py-4 text-on-glass-muted hover:text-on-glass transition-all duration-300 flex items-center justify-center font-semibold hover:scale-105"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaExternalLinkAlt className="mr-3" size={18} />
+              View on Drive
+            </motion.a>
           </motion.div>
         </motion.div>
-      </Container>
+        
+        {/* Floating decorative elements */}
+        <div className="absolute top-20 left-20 w-20 h-20 bg-sky-400/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-slate-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      </div>
     </motion.div>
   );
 };

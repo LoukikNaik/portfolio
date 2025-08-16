@@ -129,10 +129,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
+    <section id="projects" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.h2 
-          className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8"
+          className="text-4xl md:text-5xl font-bold text-center text-on-glass mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -141,7 +141,7 @@ const Projects = () => {
           Projects
         </motion.h2>
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -150,61 +150,58 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="glass-strong rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group"
               variants={itemVariants}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              whileHover={{ y: -10 }}
             >
               <motion.div 
-                className="h-48 bg-gray-200 dark:bg-gray-600 overflow-hidden"
+                className="h-48 overflow-hidden relative"
                 variants={imageVariants}
               >
                 {project.image ? (
                   <motion.img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 ) : (
                   <motion.div 
-                    className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-500 dark:from-indigo-600 dark:to-purple-600"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    className="w-full h-full bg-gradient-to-br from-sky-400 via-cyan-400 to-slate-400 group-hover:scale-110 transition-transform duration-500"
                   ></motion.div>
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </motion.div>
               <div className="p-6">
                 <motion.h3 
-                  className="text-xl font-semibold text-gray-800 dark:text-white mb-2 text-center"
+                  className="text-xl font-bold text-on-glass mb-3 text-center group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors duration-300"
                   variants={titleVariants}
                 >
                   {project.title}
                 </motion.h3>
                 <motion.p 
-                  className="text-gray-600 dark:text-gray-300 mb-4 text-justify"
+                  className="text-on-glass-muted mb-6 text-sm leading-relaxed"
                   variants={descriptionVariants}
                 >
                   {project.description}
                 </motion.p>
                 <motion.div 
-                  className="flex flex-wrap gap-2 mb-4"
+                  className="flex flex-wrap justify-center gap-2 mb-6"
                   variants={descriptionVariants}
                 >
                   {project.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-gray-600 text-blue-800 dark:text-gray-200 rounded-full text-sm border border-blue-200 dark:border-gray-500 hover:bg-blue-200 dark:hover:bg-gray-500 transition-colors duration-200"
+                      className="tech-bubble"
                       variants={techVariants}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
+                      whileHover={{ scale: 1.08, y: -3 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                       {tech}
                     </motion.span>
                   ))}
                 </motion.div>
                 <motion.div 
-                  className="flex space-x-4"
+                  className="flex justify-center space-x-6"
                   variants={descriptionVariants}
                 >
                   {project.github && (
@@ -212,11 +209,11 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      className="p-3 glass rounded-2xl text-on-glass-muted hover:text-on-glass transition-all duration-300"
+                      whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <FaGithub size={20} />
+                      <FaGithub size={24} />
                     </motion.a>
                   )}
                   {project.live && (
@@ -224,11 +221,11 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      className="p-3 glass rounded-2xl text-on-glass-muted hover:text-on-glass transition-all duration-300"
+                      whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <FaExternalLinkAlt size={20} />
+                      <FaExternalLinkAlt size={24} />
                     </motion.a>
                   )}
                 </motion.div>
@@ -237,6 +234,10 @@ const Projects = () => {
           ))}
         </motion.div>
       </div>
+      
+      {/* Floating decorative elements */}
+      <div className="absolute top-10 right-10 w-32 h-32 bg-sky-400/10 rounded-full blur-2xl animate-pulse"></div>
+      <div className="absolute bottom-10 left-10 w-24 h-24 bg-slate-400/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
     </section>
   );
 };

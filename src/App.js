@@ -26,7 +26,10 @@ function App() {
   return (
     <Router>
       <ThemeProvider>
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+        <div className="min-h-screen relative">
+          {/* Animated background particles */}
+          <div className="bg-particles"></div>
+          
           <Header />
           <main>
             <Routes>

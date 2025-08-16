@@ -5,26 +5,33 @@
   position: relative !important;
   display: flex;
   justify-content: center;
-  background: white !important;
+  background: transparent !important;
 }
 
 .react-pdf__Page__canvas {
   margin: 0 !important;
   max-width: 100% !important;
   height: auto !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
   display: block;
   background: white !important;
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: optimizeLegibility;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.react-pdf__Page__canvas:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-page {
   position: relative !important;
   display: flex;
   justify-content: center;
-  background: white !important;
+  background: transparent !important;
 }
 
 /* Text layer */
@@ -115,6 +122,24 @@
   background: transparent !important;
 }
 
+/* Glassmorphism container for PDF */
+.glass-pdf-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark .glass-pdf-container {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
 .pdf-container::-webkit-scrollbar {
   display: none;
 }
@@ -123,4 +148,32 @@
   position: relative;
   padding-top: 110px !important;
   padding-bottom: 30px !important;
+}
+
+/* Enhanced loading and error states */
+.pdf-loading, .pdf-error {
+  padding: 3rem;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .pdf-loading, .dark .pdf-error {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PDF responsive scaling */
+@media (max-width: 768px) {
+  .react-pdf__Page__canvas {
+    border-radius: 12px;
+  }
+  
+  .glass-pdf-container {
+    padding: 1rem;
+    border-radius: 16px;
+  }
 } 

@@ -172,7 +172,7 @@ const Recommendations = () => {
   };
 
   return (
-    <section id="recommendations" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-8">
         <motion.div
           className="text-center mb-20"
@@ -193,10 +193,7 @@ const Recommendations = () => {
               <span className="text-sm font-semibold text-on-glass/70">LinkedIn Testimonials</span>
             </div>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-bold text-on-glass mb-6 bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-            Recommendations
-          </h2>
-          <p className="text-on-glass/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-on-glass/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
             Trusted feedback from colleagues and leaders I've worked with
           </p>
         </motion.div>

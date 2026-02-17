@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.bb4a302d.css",
-    "main.js": "/static/js/main.a0e9a4e0.js",
+    "main.css": "/static/css/main.2d38f32d.css",
+    "main.js": "/static/js/main.36664439.js",
     "static/media/tesla.png": "/static/media/tesla.c696c3b349efd8afacbb.png",
     "static/media/loukik.jpeg": "/static/media/loukik.7485862c4a8d411f0a54.jpeg",
     "static/media/email.jpg": "/static/media/email.a8c80d9db912e720252e.jpg",
@@ -9,13 +9,13 @@
     "static/media/mnist.png": "/static/media/mnist.0d2173c5a8ef1d7c1931.png",
     "static/media/surfstore.jpg": "/static/media/surfstore.b77f56a38dfce285073b.jpg",
     "static/media/ppg.png": "/static/media/ppg.cbe07e37c680023e9da2.png",
-    "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.9f95bcd26b691294c1b5.pdf",
+    "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.44df6b7350cc9aa7b957.pdf",
     "index.html": "/index.html",
-    "main.bb4a302d.css.map": "/static/css/main.bb4a302d.css.map",
-    "main.a0e9a4e0.js.map": "/static/js/main.a0e9a4e0.js.map"
+    "main.2d38f32d.css.map": "/static/css/main.2d38f32d.css.map",
+    "main.36664439.js.map": "/static/js/main.36664439.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb4a302d.css",
-    "static/js/main.a0e9a4e0.js"
+    "static/css/main.2d38f32d.css",
+    "static/js/main.36664439.js"
   ]
 }

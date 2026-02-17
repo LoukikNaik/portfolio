@@ -224,16 +224,19 @@ const About = () => {
           >
             <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
             <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed text-justify">
-              Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build
-              scalable AI solutions that bridge the gap between research and production. My
-              expertise lies in developing efficient computer vision systems that solve real-world
-              challenges.
+              Software Engineer specializing in backend infrastructure for AI-powered applications.
+              I build scalable systems that bridge machine learning research and production
+              engineering, with expertise in agent orchestration, distributed systems, and deploying
+              reliable AI solutions for enterprise use. My work spans real-time model deployment,
+              automated retraining pipelines, and building robust APIs for computer vision and ML
+              systems.
             </p>
             <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed text-justify">
-              With a Master's from UC San Diego and experience at Plainsight Technologies, I combine
-              strong theoretical foundations with practical engineering skills. I'm passionate about
-              creating AI systems that are not just powerful, but also reliable and
-              production-ready.
+              With a Master's degree in Computer Science and hands-on experience across ML
+              infrastructure, computer vision, and cloud platforms, I combine deep technical
+              knowledge with practical engineering skills. I'm passionate about building
+              production-ready AI systems that solve complex real-world problems at scale, from
+              legal document analysis to image processing pipelines.
             </p>
           </motion.div>
 

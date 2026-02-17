@@ -151,7 +151,8 @@
 }
 
 /* Enhanced loading and error states */
-.pdf-loading, .pdf-error {
+.pdf-loading,
+.pdf-error {
   padding: 3rem;
   text-align: center;
   border-radius: 16px;
@@ -161,7 +162,8 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.dark .pdf-loading, .dark .pdf-error {
+.dark .pdf-loading,
+.dark .pdf-error {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -171,9 +173,9 @@
   .react-pdf__Page__canvas {
     border-radius: 12px;
   }
-  
+
   .glass-pdf-container {
     padding: 1rem;
     border-radius: 16px;
   }
-} 
+}

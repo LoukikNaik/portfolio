@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -20,25 +18,26 @@ const options = {
 
 const Resume = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const driveLink = "https://drive.google.com/file/d/1fd6LJSOxpy6GF0_18yXg85gVDsipP8Hd/view?usp=sharing";
+  const driveLink =
+    'https://drive.google.com/file/d/1fd6LJSOxpy6GF0_18yXg85gVDsipP8Hd/view?usp=sharing';
 
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Calculate scale based on screen width with larger values
   const getScale = () => {
-    if (width > 1400) return 2.5;     // Extra large screens
-    if (width > 1200) return 2.2;     // Large desktop
-    if (width > 992) return 1.8;      // Desktop
-    if (width > 768) return 1.5;      // Tablet
-    if (width > 576) return 1.2;      // Large mobile
-    return 1.0;                       // Mobile
+    if (width > 1400) return 2.5; // Extra large screens
+    if (width > 1200) return 2.2; // Large desktop
+    if (width > 992) return 1.8; // Desktop
+    if (width > 768) return 1.5; // Tablet
+    if (width > 576) return 1.2; // Large mobile
+    return 1.0; // Mobile
   };
 
   const containerVariants = {
@@ -46,9 +45,9 @@ const Resume = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
-      }
-    }
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -58,13 +57,13 @@ const Resume = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: 'easeOut',
+      },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen pt-32 pb-20 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -81,23 +80,20 @@ const Resume = () => {
         >
           Resume
         </motion.h2> */}
-        
-        <motion.div 
+
+        <motion.div
           className="flex flex-col items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div 
-            className="w-full flex justify-center mb-8"
-            variants={itemVariants}
-          >
+          <motion.div className="w-full flex justify-center mb-8" variants={itemVariants}>
             <div className="glass-strong rounded-3xl p-6 max-w-4xl w-full">
               <Document
                 file={resumePDF}
                 className="flex justify-center"
                 loading={
-                  <motion.div 
+                  <motion.div
                     className="text-center py-8 text-on-glass-muted"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -107,7 +103,7 @@ const Resume = () => {
                   </motion.div>
                 }
                 error={
-                  <motion.div 
+                  <motion.div
                     className="text-center py-8 text-red-600 dark:text-red-400"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -118,8 +114,8 @@ const Resume = () => {
                 }
                 options={options}
               >
-                <Page 
-                  pageNumber={1} 
+                <Page
+                  pageNumber={1}
                   scale={getScale()}
                   className="pdf-page"
                   renderAnnotationLayer={true}
@@ -130,7 +126,7 @@ const Resume = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
             variants={itemVariants}
           >
@@ -158,7 +154,7 @@ const Resume = () => {
             </motion.a>
           </motion.div>
         </motion.div>
-        
+
         {/* Floating decorative elements */}
         <div className="absolute top-20 left-20 w-20 h-20 bg-sky-400/10 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-32 h-32 bg-slate-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
@@ -167,4 +163,4 @@ const Resume = () => {
   );
 };
 
-export default Resume; 
+export default Resume;

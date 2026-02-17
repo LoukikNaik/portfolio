@@ -31,7 +31,7 @@ function App() {
         <div className="min-h-screen relative">
           {/* Animated background particles */}
           <div className="bg-particles"></div>
-          
+
           <Header />
           <main>
             <Routes>
@@ -46,4 +46,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

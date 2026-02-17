@@ -9,7 +9,7 @@ const RecommendationCard = ({ recommendation, onClick }) => (
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.9 }}
     whileHover={{ scale: 1.03, y: -8 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
+    transition={{ duration: 0.4, ease: 'easeOut' }}
     onClick={onClick}
   >
     <div className="glass-strong rounded-3xl p-8 h-full relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -47,9 +47,7 @@ const RecommendationCard = ({ recommendation, onClick }) => (
             {recommendation.relationship && (
               <div className="flex items-center gap-2 mt-2">
                 <div className="h-1 w-1 rounded-full bg-sky-500/50"></div>
-                <p className="text-xs text-on-glass/60 italic">
-                  {recommendation.relationship}
-                </p>
+                <p className="text-xs text-on-glass/60 italic">{recommendation.relationship}</p>
               </div>
             )}
           </div>
@@ -73,48 +71,49 @@ const Recommendations = () => {
   const scrollPositionRef = useRef(0);
 
   // LinkedIn recommendations URL
-  const linkedInRecommendationsUrl = "https://www.linkedin.com/in/loukiknaik/details/recommendations/?detailScreenTabIndex=0";
+  const linkedInRecommendationsUrl =
+    'https://www.linkedin.com/in/loukiknaik/details/recommendations/?detailScreenTabIndex=0';
 
   // Your LinkedIn recommendations (reordered with Andrew and Kit first)
   const recommendations = [
     {
       id: 1,
-      text: "Loukik is an outstanding Machine Learning Engineer with a rare talent for thinking big while staying grounded in practical solutions. In the fast-moving world of AI, he has a keen ability to evaluate emerging technologies and match them to the problem at hand — ensuring we use the right tools, not just the newest ones. His strategic perspective and technical insight consistently helped our team stay ahead of the curve.",
-      author: "Andrew Smith",
-      position: "Reliable, scalable, and efficient data and learning systems",
-      relationship: "Andrew managed Loukik directly",
+      text: 'Loukik is an outstanding Machine Learning Engineer with a rare talent for thinking big while staying grounded in practical solutions. In the fast-moving world of AI, he has a keen ability to evaluate emerging technologies and match them to the problem at hand — ensuring we use the right tools, not just the newest ones. His strategic perspective and technical insight consistently helped our team stay ahead of the curve.',
+      author: 'Andrew Smith',
+      position: 'Reliable, scalable, and efficient data and learning systems',
+      relationship: 'Andrew managed Loukik directly',
       authorImage: null,
     },
     {
       id: 2,
-      text: "Loukik is a super sharp machine learning engineer who brings a lot of technical skill and teamwork to the table. He quickly ramped up and helped us build impressive technology and features for our product. He has a great attitude, works hard, and is always willing to pitch in when colleagues need help. His focus and dedication are exemplary.",
-      author: "Kit Merker",
-      position: "Software Executive and Investor",
-      relationship: "Kit managed Loukik directly",
+      text: 'Loukik is a super sharp machine learning engineer who brings a lot of technical skill and teamwork to the table. He quickly ramped up and helped us build impressive technology and features for our product. He has a great attitude, works hard, and is always willing to pitch in when colleagues need help. His focus and dedication are exemplary.',
+      author: 'Kit Merker',
+      position: 'Software Executive and Investor',
+      relationship: 'Kit managed Loukik directly',
       authorImage: null,
     },
     {
       id: 3,
-      text: "I worked with Loukik at Plainsight, and I would describe him as a key pillar of the company. He is an extremely valuable presence, not only for his deep expertise in his primary domain of machine learning, but also for his strong knowledge in development, cloud, and deployment topics. He consistently contributed to debugging sessions, often solving issues outside his immediate area of expertise. Loukik is sharp, quick to understand complex problems, and always brings innovative ideas that add significant value to the organization.",
-      author: "Eashan Roy",
-      position: "Backend & AI Platform Engineer at Plainsight | MS CSE at Northeastern University",
-      relationship: "Worked together on the same team",
+      text: 'I worked with Loukik at Plainsight, and I would describe him as a key pillar of the company. He is an extremely valuable presence, not only for his deep expertise in his primary domain of machine learning, but also for his strong knowledge in development, cloud, and deployment topics. He consistently contributed to debugging sessions, often solving issues outside his immediate area of expertise. Loukik is sharp, quick to understand complex problems, and always brings innovative ideas that add significant value to the organization.',
+      author: 'Eashan Roy',
+      position: 'Backend & AI Platform Engineer at Plainsight | MS CSE at Northeastern University',
+      relationship: 'Worked together on the same team',
       authorImage: null,
     },
     {
       id: 4,
       text: "I'd strongly recommend Loukik. He brings a rare mix of ownership, sound judgment, and calm execution. He's dependable under pressure, communicates clearly, and consistently follows through on what he commits to. He's someone you can trust with ambiguous problems and expect strong outcomes without needing close oversight.",
-      author: "Ruth Peter",
-      position: "Founding Software Engineer @Eudia | Carnegie Mellon University",
-      relationship: "Worked together on the same team",
+      author: 'Ruth Peter',
+      position: 'Founding Software Engineer @Eudia | Carnegie Mellon University',
+      relationship: 'Worked together on the same team',
       authorImage: null,
     },
     {
       id: 5,
       text: "I had the pleasure of working with Loukik during our B.Tech, especially as part of the DSA coding committee. He is an excellent problem solver with strong technical skills and a natural ability to work well in a team. His dedication and positive attitude made every project and event we collaborated on a great experience. I'm confident he will excel in any challenge he takes on.",
-      author: "Abhinav Rajhans",
-      position: "SDE at Qode | Ex-Media.net",
-      relationship: "Studied together",
+      author: 'Abhinav Rajhans',
+      position: 'SDE at Qode | Ex-Media.net',
+      relationship: 'Studied together',
       authorImage: null,
     },
   ];
@@ -210,7 +209,7 @@ const Recommendations = () => {
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
-              scrollBehavior: 'auto'
+              scrollBehavior: 'auto',
             }}
           >
             {duplicatedRecommendations.map((rec, index) => (
@@ -245,8 +244,14 @@ const Recommendations = () => {
 
       {/* Enhanced floating decorative elements */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-sky-400/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute top-1/2 right-10 w-40 h-40 bg-gradient-to-br from-indigo-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-10 left-1/4 w-28 h-28 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div
+        className="absolute top-1/2 right-10 w-40 h-40 bg-gradient-to-br from-indigo-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: '1s' }}
+      ></div>
+      <div
+        className="absolute bottom-10 left-1/4 w-28 h-28 bg-gradient-to-br from-sky-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: '2s' }}
+      ></div>
     </section>
   );
 };

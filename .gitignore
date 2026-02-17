@@ -36,6 +36,9 @@ yarn-error.log*
 # Optional eslint cache
 .eslintcache
 
+# Pants build system
+.pants.d/
+
 # Optional REPL history
 .node_repl_history
 

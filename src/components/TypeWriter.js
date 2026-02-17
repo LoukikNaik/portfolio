@@ -14,7 +14,7 @@ const TypeWriter = ({ words = [], typingSpeed = 10000, deletingSpeed = 10000, pa
       const shouldDelete = isDeleting;
 
       if (shouldDelete) {
-        setText(prev => prev.slice(0, -1));
+        setText((prev) => prev.slice(0, -1));
         if (text === '') {
           setIsDeleting(false);
           setWordIndex((prev) => (prev + 1) % words.length);
@@ -47,4 +47,4 @@ const TypeWriter = ({ words = [], typingSpeed = 10000, deletingSpeed = 10000, pa
   );
 };
 
-export default TypeWriter; 
+export default TypeWriter;

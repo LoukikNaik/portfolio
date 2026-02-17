@@ -32,11 +32,13 @@ const SkillItem = ({ name, icon: Icon, color }) => (
     <motion.div
       className={`text-5xl mb-4 ${color}`}
       whileHover={{ rotate: 360, scale: 1.1 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
       <Icon size={48} />
     </motion.div>
-    <h3 className="text-lg font-bold text-on-glass text-center group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors duration-300">{name}</h3>
+    <h3 className="text-lg font-bold text-on-glass text-center group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors duration-300">
+      {name}
+    </h3>
   </motion.div>
 );
 
@@ -124,9 +126,9 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   return (
@@ -149,16 +151,11 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           {skills.map((skill, index) => (
-            <SkillItem
-              key={index}
-              name={skill.name}
-              icon={skill.icon}
-              color={skill.color}
-            />
+            <SkillItem key={index} name={skill.name} icon={skill.icon} color={skill.color} />
           ))}
         </motion.div>
       </div>
-      
+
       {/* Floating decorative elements */}
       <div className="absolute top-20 left-20 w-20 h-20 bg-slate-400/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-20 w-28 h-28 bg-sky-400/10 rounded-full blur-xl animate-pulse delay-1500"></div>
@@ -166,4 +163,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;

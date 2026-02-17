@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="glass-strong rounded-3xl p-8 md:p-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <motion.div 
+            <motion.div
               className="mb-6 md:mb-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -23,8 +23,8 @@ const Footer = () => {
                 © {new Date().getFullYear()} All rights reserved.
               </p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex space-x-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +63,9 @@ const Footer = () => {
               </motion.a>
             </motion.div>
           </div>
-          
+
           {/* Decorative gradient line */}
-          <motion.div 
+          <motion.div
             className="mt-8 h-1 bg-gradient-to-r from-sky-400 via-cyan-400 to-slate-400 rounded-full opacity-60"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -74,11 +74,11 @@ const Footer = () => {
           ></motion.div>
         </div>
       </div>
-      
+
       {/* Final floating element */}
       <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-xl opacity-20 animate-pulse"></div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

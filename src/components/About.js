@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) => (
-  <motion.div 
+  <motion.div
     className="relative pb-16 md:pb-16 last:pb-0"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
         {/* Timeline line and dot for mobile */}
         <div className="flex flex-col items-center mr-6">
           <div className="w-6 h-6 rounded-full glass z-10 flex items-center justify-center border-2 border-white/20">
-            <motion.div 
+            <motion.div
               className={`w-3 h-3 rounded-full ${isEducation ? 'bg-gradient-to-r from-sky-400 to-cyan-400' : 'bg-gradient-to-r from-slate-400 to-slate-500'}`}
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
@@ -25,21 +25,23 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
           </div>
           <div className="w-1 flex-1 bg-gradient-to-b from-sky-400 via-cyan-400 to-slate-400 rounded-full opacity-60 mt-2"></div>
         </div>
-        
+
         {/* Content for mobile */}
         <div className="flex-1">
-          <motion.div 
+          <motion.div
             className="glass rounded-2xl p-6"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <div className={`text-sm font-semibold mb-2 ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}>
+            <div
+              className={`text-sm font-semibold mb-2 ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}
+            >
               {dateRange}
             </div>
-            <h3 className="text-lg font-semibold text-on-glass mb-1">
-              {title}
-            </h3>
-            <h4 className={`text-md mb-3 font-medium ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}>
+            <h3 className="text-lg font-semibold text-on-glass mb-1">{title}</h3>
+            <h4
+              className={`text-md mb-3 font-medium ${isEducation ? 'text-sky-700 dark:text-sky-300' : 'text-slate-700 dark:text-slate-300'}`}
+            >
               {subtitle}
             </h4>
             <p className="text-sm text-on-glass-muted leading-relaxed text-justify">
@@ -55,7 +57,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
       {/* Left side (Education) */}
       <div className={`w-1/2 pr-8 ${isEducation ? '' : 'invisible'}`}>
         {isEducation && (
-          <motion.div 
+          <motion.div
             className="text-right glass rounded-2xl p-6"
             whileHover={{ x: -5, scale: 1.02 }}
             transition={{ duration: 0.3 }}
@@ -64,12 +66,8 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <div className="text-sky-700 dark:text-sky-300 font-semibold mb-2 text-sm">
               {dateRange}
             </div>
-            <h3 className="text-lg font-semibold text-on-glass mb-1">
-              {title}
-            </h3>
-            <h4 className="text-md text-sky-700 dark:text-sky-300 mb-3 font-medium">
-              {subtitle}
-            </h4>
+            <h3 className="text-lg font-semibold text-on-glass mb-1">{title}</h3>
+            <h4 className="text-md text-sky-700 dark:text-sky-300 mb-3 font-medium">{subtitle}</h4>
             <p className="text-sm text-on-glass-muted leading-relaxed text-justify">
               {description}
             </p>
@@ -81,17 +79,17 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
       <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full">
         {/* Vertical line */}
         <div className="absolute w-1 h-full bg-gradient-to-b from-sky-400 via-cyan-400 to-slate-400 left-1/2 -translate-x-1/2 rounded-full opacity-60">
-          <motion.div 
+          <motion.div
             className="absolute w-1 h-1/2 bg-gradient-to-b from-sky-400 to-cyan-400 rounded-full"
             initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
+            whileInView={{ height: '100%' }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           ></motion.div>
         </div>
         {/* Dot */}
         <div className="absolute w-6 h-6 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full glass z-10 flex items-center justify-center border-2 border-white/20">
-          <motion.div 
+          <motion.div
             className={`w-3 h-3 rounded-full ${isEducation ? 'bg-gradient-to-r from-sky-400 to-cyan-400' : 'bg-gradient-to-r from-slate-400 to-slate-500'}`}
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
@@ -113,9 +111,7 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
             <div className="text-slate-700 dark:text-slate-300 font-semibold mb-2 text-sm">
               {dateRange}
             </div>
-            <h3 className="text-lg font-semibold text-on-glass mb-1">
-              {title}
-            </h3>
+            <h3 className="text-lg font-semibold text-on-glass mb-1">{title}</h3>
             <h4 className="text-md text-slate-700 dark:text-slate-300 mb-3 font-medium">
               {subtitle}
             </h4>
@@ -132,52 +128,67 @@ const TimelineItem = ({ dateRange, title, subtitle, description, isEducation }) 
 const About = () => {
   const timelineData = [
     {
-      dateRange: 'Jan 2025 - Aug 2025',
+      dateRange: 'Sep 2025 - Present',
       endDate: new Date(),
-      title: 'Machine Learning Engineer',
+      title: 'Software Engineer',
+      subtitle: 'Eudia (Legal AI Startup, Series A)',
+      description:
+        'Owned the Mergers and Acquisitions backend service end-to-end, building core infrastructure for an agent-based AI system for large-scale legal document analysis. Re-architected agent orchestration from Airflow to Temporal, designed backend APIs for AI agent execution, and converted service to multi-tenant architecture. Managing deployments with Kubernetes, Helm, and ArgoCD.',
+      isEducation: false,
+    },
+    {
+      dateRange: 'Jan 2025 - Aug 2025',
+      endDate: new Date('2025-08-31'),
+      title: 'Machine Learning Engineer (Computer Vision Infra Startup)',
       subtitle: 'Plainsight Technologies Inc.',
-      description: 'Contributing to the development of production-ready computer vision solutions. Built scalable FastAPI endpoints for real-time image segmentation using Meta SAM and MobileSAM models. Architecting ML model training and deployment pipelines.',
-      isEducation: false
+      description:
+        'Built and deployed real-time image segmentation APIs for SAM and MobileSAM using FastAPI. Created cron-triggered retraining pipeline with Vertex AI. Designed OCR model evaluation framework and robust integration testing framework for model generation pipelines.',
+      isEducation: false,
     },
     {
       dateRange: 'June 2024 - Dec 2024',
       endDate: new Date('2024-12-15'),
-      title: 'Machine Learning Intern',
+      title: 'Machine Learning Intern  (Computer Vision Infra Startup)',
       subtitle: 'Plainsight Technologies Inc.',
-      description: 'Engineered an automated video processing pipeline using Kubeflow. Implemented end-to-end automation for video ingestion and processing, significantly reducing manual intervention.',
-      isEducation: false
+      description:
+        'Engineered an automated video processing pipeline using Kubeflow. Implemented end-to-end automation for video ingestion and processing, significantly reducing manual intervention.',
+      isEducation: false,
     },
     {
       dateRange: 'Sep 2023 - Dec 2024',
       endDate: new Date('2024-12-14'),
-      title: "MS in Computer Science",
+      title: 'MS in Computer Science',
       subtitle: 'University of California San Diego',
-      description: 'Specialized in Machine Learning and Computer Vision. Completed advanced coursework in Deep Learning, Computer Vision, and Distributed Systems. GPA: 3.9/4.0',
-      isEducation: true
+      description:
+        'Specialized in Machine Learning and Computer Vision. Completed advanced coursework in Deep Learning, Computer Vision, and Distributed Systems. GPA: 3.9/4.0',
+      isEducation: true,
     },
     {
       dateRange: 'Feb 2023 - May 2023',
       endDate: new Date('2023-02-31'),
       title: 'AI Developer Intern',
       subtitle: 'Lab Systems(I) Pvt Ltd.',
-      description: 'Enhanced software performance through advanced object and text recognition techniques. Implemented solutions using PyTesseract, EasyOCR, YOLO, and MediaPipe for improved accuracy.',
-      isEducation: false
+      description:
+        'Enhanced software performance through advanced object and text recognition techniques. Implemented solutions using PyTesseract, EasyOCR, YOLO, and MediaPipe for improved accuracy.',
+      isEducation: false,
     },
     {
       dateRange: 'Jul 2022 - Aug 2022',
       endDate: new Date('2022-07-28'),
       title: 'SWE Intern',
       subtitle: 'Hexaview Technologies Inc.',
-      description: 'Developed and tested Android applications for client projects. Implemented automated testing strategies, achieving 20% improvement in code coverage.',
-      isEducation: false
+      description:
+        'Developed and tested Android applications for client projects. Implemented automated testing strategies, achieving 20% improvement in code coverage.',
+      isEducation: false,
     },
     {
       dateRange: 'Aug 2019 - May 2023',
       endDate: new Date('2019-08-31'),
       title: "Bachelor's in Computer Engineering",
       subtitle: 'Mumbai University',
-      description: 'Graduated with Department Rank 1 (CGPA: 9.71/10.0). Led the Competitive Programming Club and served on the National Service Scheme core team. Focus on algorithms and software engineering.',
-      isEducation: true
+      description:
+        'Graduated with Department Rank 1 (CGPA: 9.71/10.0). Led the Competitive Programming Club and served on the National Service Scheme core team. Focus on algorithms and software engineering.',
+      isEducation: true,
     },
   ].sort((a, b) => b.endDate - a.endDate);
 
@@ -186,15 +197,15 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <motion.h2 
+        <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-on-glass mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -204,7 +215,7 @@ const About = () => {
           About Me
         </motion.h2>
         <div className="max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             className="glass-strong rounded-3xl p-8 md:p-12 mb-16 relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -213,18 +224,20 @@ const About = () => {
           >
             <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
             <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed text-justify">
-              Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build scalable AI solutions 
-              that bridge the gap between research and production. My expertise lies in developing efficient computer vision 
-              systems that solve real-world challenges.
+              Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build
+              scalable AI solutions that bridge the gap between research and production. My
+              expertise lies in developing efficient computer vision systems that solve real-world
+              challenges.
             </p>
             <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed text-justify">
-              With a Master's from UC San Diego and experience at Plainsight Technologies, I combine strong theoretical 
-              foundations with practical engineering skills. I'm passionate about creating AI systems that are not just 
-              powerful, but also reliable and production-ready.
+              With a Master's from UC San Diego and experience at Plainsight Technologies, I combine
+              strong theoretical foundations with practical engineering skills. I'm passionate about
+              creating AI systems that are not just powerful, but also reliable and
+              production-ready.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +260,7 @@ const About = () => {
           </motion.div>
 
           {/* Timeline container */}
-          <motion.div 
+          <motion.div
             className="relative md:relative"
             variants={containerVariants}
             initial="hidden"
@@ -271,4 +284,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

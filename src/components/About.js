@@ -224,16 +224,16 @@ const About = () => {
           >
             <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
             <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed text-justify">
-              Machine Learning Engineer specializing in Computer Vision and Deep Learning. I build
-              scalable AI solutions that bridge the gap between research and production. My
-              expertise lies in developing efficient computer vision systems that solve real-world
-              challenges.
+              Software Engineer at Eudia building backend infrastructure for AI-powered legal
+              document analysis. I specialize in developing scalable systems that bridge machine
+              learning research and production engineering. My expertise spans agent orchestration,
+              distributed systems, and building reliable AI applications for enterprise use.
             </p>
             <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed text-justify">
-              With a Master's from UC San Diego and experience at Plainsight Technologies, I combine
-              strong theoretical foundations with practical engineering skills. I'm passionate about
-              creating AI systems that are not just powerful, but also reliable and
-              production-ready.
+              With a Master's in Computer Science from UC San Diego and experience across ML
+              infrastructure and computer vision, I combine deep technical knowledge with practical
+              engineering skills. I'm passionate about building production-ready AI systems that
+              solve complex real-world problems at scale.
             </p>
           </motion.div>
 

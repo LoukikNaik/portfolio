@@ -193,10 +193,7 @@ const Recommendations = () => {
               <span className="text-sm font-semibold text-on-glass/70">LinkedIn Testimonials</span>
             </div>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-bold text-on-glass mb-6 bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-            Testimonials
-          </h2>
-          <p className="text-on-glass/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-on-glass/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
             Trusted feedback from colleagues and leaders I've worked with
           </p>
         </motion.div>

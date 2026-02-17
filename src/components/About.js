@@ -224,16 +224,19 @@ const About = () => {
           >
             <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
             <p className="text-on-glass-muted mb-8 text-lg md:text-xl leading-relaxed text-justify">
-              Software Engineer at Eudia building backend infrastructure for AI-powered legal
-              document analysis. I specialize in developing scalable systems that bridge machine
-              learning research and production engineering. My expertise spans agent orchestration,
-              distributed systems, and building reliable AI applications for enterprise use.
+              Software Engineer specializing in backend infrastructure for AI-powered applications.
+              I build scalable systems that bridge machine learning research and production
+              engineering, with expertise in agent orchestration, distributed systems, and deploying
+              reliable AI solutions for enterprise use. My work spans real-time model deployment,
+              automated retraining pipelines, and building robust APIs for computer vision and ML
+              systems.
             </p>
             <p className="text-on-glass-muted text-lg md:text-xl leading-relaxed text-justify">
-              With a Master's in Computer Science from UC San Diego and experience across ML
-              infrastructure and computer vision, I combine deep technical knowledge with practical
-              engineering skills. I'm passionate about building production-ready AI systems that
-              solve complex real-world problems at scale.
+              With a Master's degree in Computer Science and hands-on experience across ML
+              infrastructure, computer vision, and cloud platforms, I combine deep technical
+              knowledge with practical engineering skills. I'm passionate about building
+              production-ready AI systems that solve complex real-world problems at scale, from
+              legal document analysis to image processing pipelines.
             </p>
           </motion.div>
 

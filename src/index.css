@@ -346,4 +346,28 @@ html {
   bottom: 20%;
   right: 10%;
   animation-delay: -4s;
+}
+
+/* Hide scrollbar for carousel */
+.scroll-smooth::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-smooth {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Shimmer animation for recommendations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out;
 } 

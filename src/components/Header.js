@@ -12,10 +12,9 @@ const Header = () => {
   const links = [
     { name: 'Home', href: '/#home' },
     { name: 'About', href: '/#about' },
+    { name: 'Testimonials', href: '/#testimonials' },
     { name: 'Projects', href: '/#projects' },
     { name: 'Skills', href: '/#skills' },
-    { name: 'Testimonials', href: '/#testimonials' },
-    { name: 'Contact', href: '/#contact' },
     { name: 'Blog', href: '/blog', isPage: true },
     { name: 'Resume', href: '/resume', isPage: true },
   ];

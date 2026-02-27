@@ -6,6 +6,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Recommendations from './components/Recommendations';
+import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Resume from './components/Resume';
@@ -36,6 +37,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<MainContent />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/resume" element={<Resume />} />
             </Routes>
           </main>

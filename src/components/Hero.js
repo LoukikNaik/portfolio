@@ -59,14 +59,14 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <div className="glass-strong rounded-3xl p-8 lg:p-12">
+            <div className="glass-strong rounded-3xl p-8 lg:p-10">
               <motion.h1
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-on-glass mb-6 leading-tight"
                 variants={itemVariants}
               >
                 Hi, I'm{' '}
                 <span className="gradient-text bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                  Loukik Naik
+                  Loukik
                 </span>
               </motion.h1>
               <motion.h2

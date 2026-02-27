@@ -17,9 +17,9 @@ function MainContent() {
     <>
       <Hero />
       <About />
+      <Recommendations />
       <Projects />
       <Skills />
-      <Recommendations />
       <Contact />
     </>
   );

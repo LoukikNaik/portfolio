@@ -4,7 +4,7 @@ import { FaLinkedin, FaQuoteLeft } from 'react-icons/fa';
 
 const RecommendationCard = ({ recommendation, onClick }) => (
   <motion.div
-    className="min-w-[380px] md:min-w-[500px] mx-4 cursor-pointer"
+    className="min-w-[280px] md:min-w-[500px] mx-2 md:mx-4 cursor-pointer"
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.9 }}
@@ -12,42 +12,44 @@ const RecommendationCard = ({ recommendation, onClick }) => (
     transition={{ duration: 0.4, ease: 'easeOut' }}
     onClick={onClick}
   >
-    <div className="glass-strong rounded-3xl p-8 h-full relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-300">
+    <div className="glass-strong rounded-2xl md:rounded-3xl p-5 md:p-8 h-full relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-300">
       {/* Gradient accent border */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 via-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-br from-sky-400/20 via-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
       {/* Inner content container */}
       <div className="relative z-10">
         {/* LinkedIn icon badge */}
-        <div className="absolute -top-2 -right-2 bg-blue-500 rounded-full p-3 shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-          <FaLinkedin size={20} className="text-white" />
+        <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-blue-500 rounded-full p-2 md:p-3 shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+          <FaLinkedin size={16} className="text-white md:w-5 md:h-5" />
         </div>
 
         {/* Quote icon with gradient */}
-        <div className="mb-6 inline-block">
+        <div className="mb-3 md:mb-6 inline-block">
           <div className="text-sky-500/40 dark:text-sky-400/40 group-hover:text-sky-500/60 dark:group-hover:text-sky-400/60 transition-colors duration-300">
-            <FaQuoteLeft size={36} />
+            <FaQuoteLeft size={24} className="md:w-9 md:h-9" />
           </div>
         </div>
 
         {/* Recommendation text */}
-        <p className="text-on-glass text-base md:text-lg mb-8 leading-relaxed font-normal italic">
+        <p className="text-on-glass text-xs md:text-base mb-5 md:mb-8 leading-relaxed font-normal italic">
           "{recommendation.text}"
         </p>
 
         {/* Author info with enhanced styling */}
-        <div className="flex items-start pt-6 border-t-2 border-sky-400/30 dark:border-sky-500/30">
+        <div className="flex items-start pt-4 md:pt-6 border-t-2 border-sky-400/30 dark:border-sky-500/30">
           <div className="flex-1">
-            <h4 className="font-bold text-lg text-on-glass group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors duration-300 mb-1">
+            <h4 className="font-bold text-sm md:text-lg text-on-glass group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors duration-300 mb-0.5 md:mb-1">
               {recommendation.author}
             </h4>
-            <p className="text-sm text-on-glass/80 font-medium mb-2 leading-snug">
+            <p className="text-xs md:text-sm text-on-glass/80 font-medium mb-1 md:mb-2 leading-snug">
               {recommendation.position}
             </p>
             {recommendation.relationship && (
-              <div className="flex items-center gap-2 mt-2">
+              <div className="flex items-center gap-2 mt-1 md:mt-2">
                 <div className="h-1 w-1 rounded-full bg-sky-500/50"></div>
-                <p className="text-xs text-on-glass/60 italic">{recommendation.relationship}</p>
+                <p className="text-[10px] md:text-xs text-on-glass/60 italic">
+                  {recommendation.relationship}
+                </p>
               </div>
             )}
           </div>
@@ -55,7 +57,7 @@ const RecommendationCard = ({ recommendation, onClick }) => (
       </div>
 
       {/* Animated gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-400/0 via-blue-500/0 to-indigo-500/0 group-hover:from-sky-400/10 group-hover:via-blue-500/5 group-hover:to-indigo-500/10 transition-all duration-500 rounded-3xl pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-400/0 via-blue-500/0 to-indigo-500/0 group-hover:from-sky-400/10 group-hover:via-blue-500/5 group-hover:to-indigo-500/10 transition-all duration-500 rounded-2xl md:rounded-3xl pointer-events-none"></div>
 
       {/* Shimmer effect on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
@@ -172,28 +174,30 @@ const Recommendations = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-8">
+    <section id="testimonials" className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <motion.div
-            className="inline-block mb-4"
+            className="inline-block mb-3 md:mb-4"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="flex items-center gap-3 px-6 py-2 glass rounded-full">
-              <FaLinkedin className="text-blue-500" size={24} />
-              <span className="text-sm font-semibold text-on-glass/70">LinkedIn Testimonials</span>
+            <div className="flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 glass rounded-full">
+              <FaLinkedin className="text-blue-500" size={20} />
+              <span className="text-xs md:text-sm font-semibold text-on-glass/70">
+                LinkedIn Testimonials
+              </span>
             </div>
           </motion.div>
-          <p className="text-on-glass/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
+          <p className="text-on-glass/70 text-sm md:text-xl max-w-2xl mx-auto leading-relaxed mt-4 md:mt-6 px-4">
             Trusted feedback from colleagues and leaders I've worked with
           </p>
         </motion.div>
@@ -219,21 +223,21 @@ const Recommendations = () => {
           </div>
 
           {/* Enhanced gradient overlays for smooth fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 dark:from-slate-900 dark:via-slate-900/80 to-transparent pointer-events-none z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-slate-50 via-slate-50/80 dark:from-slate-900 dark:via-slate-900/80 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-12 md:w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 dark:from-slate-900 dark:via-slate-900/80 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 md:w-40 bg-gradient-to-l from-slate-50 via-slate-50/80 dark:from-slate-900 dark:via-slate-900/80 to-transparent pointer-events-none z-10"></div>
         </div>
 
         {/* Click hint */}
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-8 md:mt-12"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 glass-strong rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 glass-strong rounded-full">
             <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-            <p className="text-on-glass/70 text-sm font-medium">
-              Click any card to view all recommendations on LinkedIn
+            <p className="text-on-glass/70 text-xs md:text-sm font-medium">
+              Click any card to view on LinkedIn
             </p>
           </div>
         </motion.div>

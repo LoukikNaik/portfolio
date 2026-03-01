@@ -11,6 +11,16 @@ import emailClassifierImage from '../assets/email.jpg';
 const Projects = () => {
   const projects = [
     {
+      title: 'Tool-Call Tactics',
+      description:
+        'An interactive game that lets you experience how an AI agent reasons through tool calls. Watch and play as the agent decides which tools to use and why.',
+      iframePreview: 'https://toolcalltactics.loukik.dev',
+      technologies: ['AI Agents', 'Tool Use', 'Interactive', 'Game'],
+      github: 'https://github.com/LoukikNaik/tool-call-tactics',
+      live: 'https://toolcalltactics.loukik.dev',
+    },
+
+    {
       title: 'Surfstore: Distributed File Storage System',
       description:
         'Implemented a horizontally scalable file storage system using Go and gRPC. Features multiple block/metadata servers and Raft consensus for reliable data synchronization across servers.',
@@ -153,7 +163,7 @@ const Projects = () => {
           Projects
         </motion.h2>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -162,12 +172,20 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="glass-strong rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group"
+              className="glass-strong rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)]"
               variants={itemVariants}
               whileHover={{ y: -10 }}
             >
               <motion.div className="h-48 overflow-hidden relative" variants={imageVariants}>
-                {project.image ? (
+                {project.iframePreview ? (
+                  <iframe
+                    src={project.iframePreview}
+                    title={`${project.title} Preview`}
+                    className="w-[200%] h-[200%] origin-top-left scale-50 pointer-events-none"
+                    loading="lazy"
+                    tabIndex={-1}
+                  />
+                ) : project.image ? (
                   <motion.img
                     src={project.image}
                     alt={project.title}

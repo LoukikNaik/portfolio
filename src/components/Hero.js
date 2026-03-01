@@ -52,7 +52,7 @@ const Hero = () => {
       className="pt-32 pb-20 min-h-screen flex items-center relative overflow-hidden"
     >
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
           <motion.div
             className="lg:w-1/2 text-center lg:text-left"
             variants={containerVariants}
@@ -116,6 +116,43 @@ const Hero = () => {
                   <FaEnvelope size={28} />
                 </motion.a>
               </motion.div>
+              <motion.a
+                href="https://toolcalltactics.loukik.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 block group"
+                variants={itemVariants}
+              >
+                <motion.div
+                  className="glass rounded-2xl border border-sky-400/20 hover:border-sky-400/50 transition-all duration-300 overflow-hidden"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="relative w-full h-44 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+                    <iframe
+                      src="https://toolcalltactics.loukik.dev"
+                      title="Tool-Call Tactics Preview"
+                      className="w-[200%] h-[200%] origin-top-left scale-50 pointer-events-none"
+                      loading="lazy"
+                      tabIndex={-1}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  </div>
+                  <div className="p-5 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold text-on-glass group-hover:text-sky-400 transition-colors">
+                        🎮 Tool-Call Tactics
+                      </h3>
+                      <p className="text-on-glass-muted text-sm mt-1">
+                        See how an AI agent reasons, play the game!
+                      </p>
+                    </div>
+                    <span className="text-sky-400 text-xl group-hover:translate-x-1 transition-transform duration-300">
+                      →
+                    </span>
+                  </div>
+                </motion.div>
+              </motion.a>
             </div>
           </motion.div>
 

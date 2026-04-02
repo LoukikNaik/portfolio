@@ -7,6 +7,8 @@ import mnistImage from '../assets/mnist.png';
 import surfstoreImage from '../assets/surfstore.jpg';
 import tritonHttpImage from '../assets/tritonhttp.jpg';
 import emailClassifierImage from '../assets/email.jpg';
+import synapseImage from '../assets/synapse.png';
+import vehicleVisualizerImage from '../assets/vehicle-visualizer.png';
 
 const Projects = () => {
   const projects = [
@@ -18,6 +20,25 @@ const Projects = () => {
       technologies: ['AI Agents', 'Tool Use', 'Interactive', 'Game'],
       github: 'https://github.com/LoukikNaik/tool-call-tactics',
       live: 'https://toolcalltactics.loukik.dev',
+    },
+
+    {
+      title: '3D Vehicle Visualizer',
+      description:
+        'Full-stack 3D vehicle UI with GLB model loading, REST-synced speed, brake lights, and door controls. Per-model presets for wheels, door hinges, and brake lights are saved on the server. Built with React Three Fiber for the browser-based 3D viewer and FastAPI for vehicle state CRUD and JSON preset persistence. API key: M2QtdmVoaWNsZS12aXN1YWxpemVyLXByb2R1Y3Rpb24udXAucmFpbHdheS5hcHA=',
+      image: vehicleVisualizerImage,
+      technologies: ['React', 'Three.js', 'React Three Fiber', 'FastAPI', 'Python', 'Docker', 'Vite', 'REST API'],
+      github: 'https://github.com/LoukikNaik/3D-Vehicle-Visualizer',
+      live: 'https://simulator.loukik.dev',
+    },
+
+    {
+      title: 'Synapse',
+      description:
+        'An iOS app that trains engineering judgment through scenario-based spaced repetition. Each card presents a realistic situation with tradeoffs instead of testing recall. Any source material can be converted into a study deck via an LLM prompt template. Built with SwiftUI + SwiftData, fully offline with SM-2 scheduling, confidence-weighted adaptation, and ships with 220+ scenarios.',
+      image: synapseImage,
+      technologies: ['Swift', 'SwiftUI', 'SwiftData', 'SM-2 Algorithm', 'iOS'],
+      github: 'https://github.com/LoukikNaik/Synapse',
     },
 
     {

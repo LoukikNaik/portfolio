@@ -404,21 +404,23 @@ const Analytics = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <FaGlobe className="text-sky-400" size={14} />
-                  <h2 className="text-lg font-semibold text-on-glass">Visitors by Country</h2>
+                  <h2 className="text-lg font-semibold text-on-glass">Visitors by City</h2>
                 </div>
-                {data.countries.length > 0 ? (
+                {data.visitorLocations && data.visitorLocations.length > 0 ? (
                   <div className="space-y-3">
-                    {data.countries.map((c) => (
-                      <div key={c.country} className="flex items-center gap-3">
-                        <span className="text-lg w-8 text-center">{countryFlag(c.country)}</span>
-                        <span className="text-on-glass text-sm font-medium w-8">{c.country}</span>
+                    {data.visitorLocations.map((loc, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <span className="text-lg w-8 text-center">{countryFlag(loc.country)}</span>
+                        <span className="text-on-glass text-sm font-medium truncate flex-1">
+                          {loc.city || 'Unknown'}{loc.region ? `, ${loc.region}` : ''}
+                        </span>
                         <div className="flex-1 h-2.5 glass rounded-full overflow-hidden">
                           <div
                             className="h-full bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full transition-all duration-500"
-                            style={{ width: `${(c.count / maxCountry) * 100}%` }}
+                            style={{ width: `${(loc.count / Math.max(...data.visitorLocations.map((l) => l.count), 1)) * 100}%` }}
                           />
                         </div>
-                        <span className="text-on-glass-muted text-sm w-8 text-right">{c.count}</span>
+                        <span className="text-on-glass-muted text-sm w-8 text-right">{loc.count}</span>
                       </div>
                     ))}
                   </div>

@@ -473,7 +473,7 @@ const Analytics = () => {
                               <th className="pb-3 pr-4 font-medium">Time</th>
                               <th className="pb-3 pr-4 font-medium">Type</th>
                               <th className="pb-3 pr-4 font-medium">Details</th>
-                              <th className="pb-3 font-medium">Country</th>
+                              <th className="pb-3 font-medium">Location</th>
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-white/5">
@@ -503,8 +503,8 @@ const Analytics = () => {
                                     <span>{event.page_path}</span>
                                   )}
                                 </td>
-                                <td className="py-2.5 text-center">
-                                  {countryFlag(event.country)} {event.country}
+                                <td className="py-2.5 whitespace-nowrap text-xs">
+                                  {countryFlag(event.country)} {event.city || event.country}
                                 </td>
                               </tr>
                             ))}

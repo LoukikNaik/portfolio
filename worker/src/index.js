@@ -237,7 +237,7 @@ export default {
           env.DB.prepare("SELECT project_name, link_type, COUNT(*) as count FROM events WHERE type='project_click' GROUP BY project_name, link_type ORDER BY count DESC").all(),
           env.DB.prepare("SELECT country, COUNT(DISTINCT ip_hash) as count FROM events WHERE type='page_view' GROUP BY country ORDER BY count DESC LIMIT 20").all(),
           env.DB.prepare("SELECT DATE(created_at) as date, COUNT(DISTINCT ip_hash) as visitors, COUNT(*) as events FROM events WHERE created_at >= ? GROUP BY DATE(created_at) ORDER BY date").bind(monthAgo).all(),
-          env.DB.prepare("SELECT type, project_name, link_type, page_path, country, created_at FROM events ORDER BY created_at DESC LIMIT ? OFFSET ?").bind(pageSize, offset).all(),
+          env.DB.prepare("SELECT type, project_name, link_type, page_path, country, city, region, created_at FROM events ORDER BY created_at DESC LIMIT ? OFFSET ?").bind(pageSize, offset).all(),
           env.DB.prepare("SELECT COUNT(*) as count FROM events").first(),
           env.DB.prepare("SELECT city, region, country, latitude, longitude, COUNT(*) as count FROM events WHERE latitude IS NOT NULL GROUP BY city, region, country ORDER BY count DESC LIMIT 200").all(),
         ]);

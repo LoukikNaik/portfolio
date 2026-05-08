@@ -97,6 +97,7 @@ html {
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid var(--glass-border-light);
   box-shadow: 0 12px 48px var(--glass-shadow-strong-light);
+  transform: translateZ(0);
 }
 
 .dark .glass-strong {
@@ -329,6 +330,8 @@ html {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .bg-particles::before,
@@ -341,6 +344,8 @@ html {
   filter: blur(60px);
   opacity: 0.3;
   animation: float 8s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .bg-particles::before {

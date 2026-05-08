@@ -127,42 +127,49 @@ const Recommendations = () => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    const scrollSpeed = 0.8; // Pixels per frame
+    const scrollSpeed = 0.8;
+    let isVisible = false;
 
     const animate = () => {
-      if (!scrollContainer) return;
+      if (!scrollContainer || !isVisible) return;
 
-      // Increment scroll position
       scrollPositionRef.current += scrollSpeed;
-
-      // Calculate the width of one set of recommendations
       const oneSetWidth = scrollContainer.scrollWidth / 3;
 
-      // Reset scroll position when we've scrolled through one set
-      // This creates a seamless infinite loop
       if (scrollPositionRef.current >= oneSetWidth) {
         scrollPositionRef.current = 0;
         scrollContainer.scrollLeft = 0;
       }
 
-      // Apply smooth scroll
       scrollContainer.scrollLeft = scrollPositionRef.current;
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Wait for DOM to be ready
+    // Only animate when the carousel is visible on screen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animationRef.current) {
+          animationRef.current = requestAnimationFrame(animate);
+        } else if (!isVisible && animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+          animationRef.current = null;
+        }
+      },
+      { threshold: 0 }
+    );
+
     const timeoutId = setTimeout(() => {
       if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
-        // Start from beginning
         scrollContainer.scrollLeft = 0;
         scrollPositionRef.current = 0;
-        animationRef.current = requestAnimationFrame(animate);
+        observer.observe(scrollContainer);
       }
     }, 300);
 
     return () => {
       clearTimeout(timeoutId);
+      observer.disconnect();
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

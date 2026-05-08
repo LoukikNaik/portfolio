@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaCopy, FaCheck } from 'react-icons/fa';
+import { trackProjectClick } from '../utils/analytics';
 import { motion } from 'framer-motion';
 import ppgImage from '../assets/ppg.png';
 import teslaImage from '../assets/tesla.png';
@@ -290,6 +291,7 @@ const Projects = () => {
                       className="p-3 glass rounded-2xl text-on-glass-muted hover:text-on-glass transition-all duration-300"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
+                      onClick={() => trackProjectClick(project.title, 'github')}
                     >
                       <FaGithub size={24} />
                     </motion.a>
@@ -302,6 +304,7 @@ const Projects = () => {
                       className="p-3 glass rounded-2xl text-on-glass-muted hover:text-on-glass transition-all duration-300"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
+                      onClick={() => trackProjectClick(project.title, 'live')}
                     >
                       <FaExternalLinkAlt size={24} />
                     </motion.a>

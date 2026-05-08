@@ -134,7 +134,8 @@ const Analytics = () => {
   const fetchData = useCallback(async (t, page = 1, pageSize = 10) => {
     setDataLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/analytics/data?page=${page}&pageSize=${pageSize}`, {
+      const tzOffset = new Date().getTimezoneOffset();
+      const res = await fetch(`${API_BASE}/api/analytics/data?page=${page}&pageSize=${pageSize}&tzOffset=${tzOffset}`, {
         headers: { Authorization: `Bearer ${t}` },
       });
       if (res.status === 401) {

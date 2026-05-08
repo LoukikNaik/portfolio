@@ -1,0 +1,12 @@
+name = "portfolio-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "889d25ed8fb14e7c83323f850c06ed97"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio-analytics"
+database_id = "673247fc-d3fc-48ff-a578-344d92e20385"

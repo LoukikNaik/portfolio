@@ -33,6 +33,9 @@ jobs:
       - name: Set Custom Domain
         run: echo "portfolio.loukik.dev" > ./build/CNAME
 
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp ./build/index.html ./build/404.html
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

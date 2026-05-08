@@ -4,118 +4,94 @@ Personal portfolio for Loukik Naik. Live at `portfolio.loukik.dev`.
 
 ## Tech Stack
 
-- **Framework:** React 18 (Create React App) — single-page app, client-side rendered
-- **Styling:** Tailwind CSS 3.4 + custom glassmorphism classes in `src/index.css`
-- **Animations:** Framer Motion
-- **Routing:** React Router v7 (4 routes: `/`, `/blog`, `/resume`, `/analytics`)
-- **Icons:** react-icons (FontAwesome set)
-- **Email:** EmailJS (browser-side, no backend)
-- **PDF:** react-pdf for resume viewer
-- **Backend:** Cloudflare Worker (`worker/`) with KV cache + D1 database
-- **Deployment:** GitHub Pages (frontend), Cloudflare Workers (API)
+- **Frontend:** React 18 (CRA), Tailwind CSS 3.4, Framer Motion, React Router v7
+- **Backend:** Cloudflare Worker with KV (cache) + D1 (analytics SQLite database)
+- **Deployment:** GitHub Pages (frontend, auto-deploys on push to `main`), Cloudflare Workers (API, manual deploy)
 
 ## Project Structure
 
 ```
 src/
-  App.js              — Router setup, 4 routes + RouteTracker for analytics
-  index.js            — React DOM entry
-  index.css           — Global styles, glassmorphism utilities, animations
-  context/
-    ThemeContext.js    — Dark/light mode (class-based, persisted in localStorage)
-  utils/
-    analytics.js      — trackPageView() and trackProjectClick() — fire-and-forget POSTs
+  App.js              — Router (/, /blog, /resume, /analytics) + RouteTracker
+  index.css           — Global styles, glassmorphism, Leaflet popup overrides
+  context/ThemeContext.js — Dark/light mode (class-based, localStorage)
+  utils/analytics.js  — trackPageView(), trackProjectClick() fire-and-forget POSTs
   components/
-    Header.js         — Fixed nav bar, dark mode toggle, mobile hamburger menu
-    Hero.js           — Landing section, typewriter effect, profile image, GitHub heatmap
-    About.js          — Experience/education timeline with expandable cards
-    Recommendations.js — Auto-scrolling LinkedIn testimonial carousel
-    Projects.js       — Project cards grid (with click tracking on GitHub/Live links)
-    Skills.js         — Technology badges grid with icons
-    Contact.js        — Email form (EmailJS integration)
-    Blog.js           — Medium articles + YouTube video links
-    Resume.js         — PDF viewer with download button
-    Analytics.js      — Password-protected analytics dashboard (hidden, not in nav)
-    TypeWriter.js     — Reusable typing/deleting text animation
-    Footer.js         — Copyright, social links
+    Hero.js           — Landing, typewriter, GitHub contribution heatmap
+    About.js          — Experience/education timeline
+    Recommendations.js — Auto-scroll carousel (pauses off-screen via IntersectionObserver)
+    Projects.js       — Project cards with click tracking on GitHub/Live links
+    Skills.js         — Technology badges
+    Contact.js        — Email form (EmailJS)
+    Blog.js           — Medium/YouTube links
+    Resume.js         — PDF viewer
+    Analytics.js      — Password-protected dashboard (hidden, not in nav)
+    Header.js         — Nav bar, dark mode toggle
+    Footer.js         — Copyright, socials
 worker/
-  src/index.js        — Cloudflare Worker: GitHub stats, analytics event/login/data endpoints
-  wrangler.toml       — Worker config with KV + D1 bindings
-  schema.sql          — D1 database schema (events table)
-  package.json        — Wrangler dev dependency
-public/
-  index.html          — Single HTML entry point
+  src/index.js        — Worker: GitHub stats + analytics endpoints
+  src/__tests__/worker.test.js — Vitest integration tests (19 tests)
+  wrangler.toml       — KV + D1 bindings
+  schema.sql          — D1 schema (events table with location columns)
+  vitest.config.js    — Test config
 ```
-
-## Cloudflare Worker API
-
-Worker URL: `https://portfolio-api.loukik.workers.dev`
-
-| Endpoint | Method | Auth | Purpose |
-|----------|--------|------|---------|
-| `/api/github-stats` | GET | No | GitHub profile + contribution data (cached 1hr in KV) |
-| `/api/analytics/event` | POST | No | Track page views and project clicks (stored in D1) |
-| `/api/analytics/login` | POST | No | Authenticate with username/password, returns HMAC token |
-| `/api/analytics/data` | GET | Bearer token | Aggregated analytics data for dashboard |
-
-Worker secrets (set via `wrangler secret put`): `GITHUB_TOKEN`, `ANALYTICS_USERNAME`, `ANALYTICS_PASSWORD`, `AUTH_SECRET`
-
-Worker commands:
-```bash
-cd worker
-npx wrangler dev          # Local dev
-npx wrangler deploy       # Deploy to Cloudflare
-npx wrangler d1 execute portfolio-analytics --remote --file=./schema.sql  # Apply schema
-```
-
-## Key Patterns
-
-- **Cloudflare Worker backend.** GitHub stats cached in KV. Analytics stored in D1 (SQLite). Auth via HMAC-signed tokens.
-- **Event tracking.** `src/utils/analytics.js` exports `trackPageView` and `trackProjectClick`. Fire-and-forget with `keepalive: true`. Debounced via sessionStorage.
-- **Glassmorphism design.** Use `.glass` and `.glass-strong` CSS classes for frosted-glass cards. Text uses `.text-on-glass` / `.text-on-glass-muted`.
-- **Dark mode.** Controlled via `useTheme()` hook from `ThemeContext`. Tailwind `darkMode: 'class'`.
-- **Navigation.** Header links scroll to sections on `/` (anchor-based) or navigate to `/blog`, `/resume` pages. `/analytics` is hidden from nav.
-- **Animations.** Framer Motion `variants` pattern — define `containerVariants`/`itemVariants`, use `initial="hidden"` and `whileInView="visible"`.
 
 ## Commands
 
+### Frontend
 ```bash
-npm start          # Dev server (port 3000)
-npm run build      # Production build to build/
-npm run deploy     # Deploy to GitHub Pages
+npm start             # Dev server (port 3000)
+npm run build         # Production build
+npm run deploy        # Deploy to GitHub Pages
 ```
+
+### Worker
+```bash
+cd worker
+npm test              # Run 19 integration tests (always run before deploying)
+npm run dev            # Local dev server
+npm run deploy         # Deploy to Cloudflare
+npx wrangler d1 execute portfolio-analytics --remote --file=./schema.sql   # Apply schema
+npx wrangler d1 execute portfolio-analytics --remote --command "ALTER TABLE events ADD COLUMN foo TEXT"  # Ad-hoc migration
+npx wrangler secret put SECRET_NAME   # Set a Worker secret
+```
+
+## Worker API
+
+URL: `https://portfolio-api.loukik.workers.dev`
+
+| Endpoint | Method | Auth | Purpose |
+|----------|--------|------|---------|
+| `/api/github-stats` | GET | No | GitHub profile + contribution calendar (KV cached 1hr) |
+| `/api/analytics/event` | POST | No | Track page views + project clicks → D1. Filters bots. Captures city/region/lat/lng from Cloudflare headers. |
+| `/api/analytics/login` | POST | No | Returns HMAC-signed token (24hr expiry) |
+| `/api/analytics/data` | GET | Bearer token | Paginated analytics: visitors, project clicks, countries, locations, daily trend, events. Params: `?page=1&pageSize=10` (max 50) |
+
+Secrets (via `wrangler secret put`): `GITHUB_TOKEN`, `ANALYTICS_USERNAME`, `ANALYTICS_PASSWORD`, `AUTH_SECRET`
+
+## Key Patterns
+
+- **Glassmorphism:** `.glass` / `.glass-strong` for containers, `.text-on-glass` / `.text-on-glass-muted` for text.
+- **Dark mode:** `useTheme()` hook, Tailwind `dark:` variants, `darkMode: 'class'`.
+- **Animations:** Framer Motion variants with `initial="hidden"` + `whileInView="visible"` + `viewport={{ once: true }}`.
+- **Analytics tracking:** `src/utils/analytics.js` — fire-and-forget `fetch` with `keepalive: true`, debounced via sessionStorage.
+- **Performance:** Background particles and glass cards use `translateZ(0)` for GPU compositing. Recommendations carousel pauses `requestAnimationFrame` when off-screen.
 
 ## Adding a New Page
 
 1. Create component in `src/components/`
-2. Add route in `App.js` (`<Route path="/new" element={<NewPage />} />`)
-3. Add nav link in `Header.js` (`links` array with `isPage: true`)
+2. Add route in `App.js`
+3. Add nav link in `Header.js` (`links` array with `isPage: true`) — skip for hidden pages
 
 ## Adding a New Project
 
-Add an object to the `projects` array in `src/components/Projects.js` with: `title`, `description`, `image` or `iframePreview`, `technologies[]`, `github?`, `live?`.
+Add to the `projects` array in `src/components/Projects.js`: `title`, `description`, `image` or `iframePreview`, `technologies[]`, `github?`, `live?`. Click tracking is automatic.
 
 ## Agent Guidelines
 
-### Style Rules
-
-- Match the glassmorphism aesthetic. New UI should use `glass` / `glass-strong` classes for containers, `text-on-glass` / `text-on-glass-muted` for text, `rounded-2xl` or `rounded-3xl` for border radius.
-- Use Framer Motion for entrance animations (fade + slide pattern with `variants`).
-- Tailwind utility classes for layout. Custom CSS only goes in `src/index.css` when Tailwind can't express it.
-- Support dark mode — use `dark:` Tailwind variants or the `.dark .class` pattern in CSS.
-- Keep the color palette: sky-400/cyan-400 for accents, slate tones for neutrals.
-
-### Architecture Constraints
-
-- Frontend data is hardcoded in component files (no separate data/config files).
-- Backend is Cloudflare Worker with KV + D1. No other server.
-- Don't add new npm dependencies without explicit approval.
-- Responsive design is required — mobile-first, test at small breakpoints.
-
-### Before Submitting Work
-
-- Run `npm start` and visually verify changes in browser.
-- Check both light and dark mode.
-- Test mobile viewport (375px width minimum).
-- Don't leave `console.log` statements unless intentional.
-- **Update this file** (`CLAUDE.md`) to reflect any structural changes — new routes, components, patterns, or commands. `AGENTS.md` is a symlink to this file, so both stay in sync automatically.
+- Match glassmorphism aesthetic (glass classes, sky-400/cyan-400 accents, slate neutrals, rounded-2xl/3xl).
+- Framer Motion for entrance animations. Tailwind for layout. Custom CSS only in `index.css`.
+- Support dark mode. Responsive mobile-first (375px min).
+- No new npm deps without approval. No `console.log` unless intentional.
+- **Run `cd worker && npm test` before deploying Worker changes.**
+- **Update this file** after structural changes. `AGENTS.md` is a symlink — both stay in sync.

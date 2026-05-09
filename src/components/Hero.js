@@ -14,7 +14,7 @@ const Hero = () => {
 
   const [githubStats, setGithubStats] = useState(null);
   const heatmapRef = useCallback((node) => {
-    if (node) {
+    if (node && window.innerWidth < 1024) {
       node.scrollLeft = node.scrollWidth;
     }
   }, []);

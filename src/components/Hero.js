@@ -157,7 +157,7 @@ const Hero = () => {
                 >
                   <img
                     src={profileImage}
-                    alt="Profile"
+                    alt="Loukik Naik - Software Engineer"
                     className="w-80 h-80 lg:w-80 lg:h-80 mx-auto rounded-full object-cover border-4 border-white/20"
                     style={{ aspectRatio: '1/1' }}
                   />

@@ -58,7 +58,7 @@ npx wrangler secret put SECRET_NAME   # Set a Worker secret
 
 ## Worker API
 
-URL: `https://portfolio-api.loukik.workers.dev`
+URL: `https://api.loukik.dev`
 
 | Endpoint | Method | Auth | Purpose |
 |----------|--------|------|---------|

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaLock, FaSignOutAlt, FaGlobe, FaUsers, FaMousePointer, FaGithub, FaExternalLinkAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
-const API_BASE = 'https://portfolio-api.loukik.workers.dev';
+const API_BASE = 'https://api.loukik.dev';
 
 function VisitorMap({ locations }) {
   const mapContainerRef = useRef(null);

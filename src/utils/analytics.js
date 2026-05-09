@@ -1,4 +1,4 @@
-const API_BASE = "https://portfolio-api.loukik.workers.dev";
+const API_BASE = "https://api.loukik.dev";
 
 export function trackPageView(pagePath) {
   const key = `tracked_${pagePath}`;

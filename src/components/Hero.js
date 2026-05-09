@@ -20,7 +20,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://portfolio-api.loukik.workers.dev/api/github-stats')
+    fetch('https://api.loukik.dev/api/github-stats')
       .then((res) => res.json())
       .then((data) => {
         if (!data.error) setGithubStats(data);

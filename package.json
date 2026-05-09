@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "homepage": "https://portfolio.loukik.dev",
+  "homepage": "https://loukik.dev",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@react-pdf/renderer": "^4.3.0",

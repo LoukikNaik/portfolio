@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Personal portfolio for Loukik Naik. Live at `portfolio.loukik.dev`.
+Personal portfolio for Loukik Naik. Live at `loukik.dev`.
 
 ## Tech Stack
 

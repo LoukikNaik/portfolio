@@ -31,7 +31,7 @@ jobs:
           CI: false
 
       - name: Set Custom Domain
-        run: echo "portfolio.loukik.dev" > ./build/CNAME
+        run: echo "loukik.dev" > ./build/CNAME
 
       - name: Copy index.html to 404.html for SPA routing
         run: cp ./build/index.html ./build/404.html

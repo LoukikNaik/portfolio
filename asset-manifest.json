@@ -1,9 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.70da3596.css",
-    "main.js": "/static/js/main.8ec04d9c.js",
+    "main.js": "/static/js/main.26e1e30c.js",
     "static/media/tesla.png": "/static/media/tesla.c696c3b349efd8afacbb.png",
-    "static/media/vehicle-visualizer.png": "/static/media/vehicle-visualizer.0f935c6723ab792297eb.png",
     "static/media/loukik.jpeg": "/static/media/loukik.7485862c4a8d411f0a54.jpeg",
     "static/media/email.jpg": "/static/media/email.a8c80d9db912e720252e.jpg",
     "static/media/tritonhttp.jpg": "/static/media/tritonhttp.47bf2a77dc66d92730eb.jpg",
@@ -16,10 +15,10 @@
     "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.44df6b7350cc9aa7b957.pdf",
     "index.html": "/index.html",
     "main.70da3596.css.map": "/static/css/main.70da3596.css.map",
-    "main.8ec04d9c.js.map": "/static/js/main.8ec04d9c.js.map"
+    "main.26e1e30c.js.map": "/static/js/main.26e1e30c.js.map"
   },
   "entrypoints": [
     "static/css/main.70da3596.css",
-    "static/js/main.8ec04d9c.js"
+    "static/js/main.26e1e30c.js"
   ]
 }

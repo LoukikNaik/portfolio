@@ -9,7 +9,6 @@ import surfstoreImage from '../assets/surfstore.jpg';
 import tritonHttpImage from '../assets/tritonhttp.jpg';
 import emailClassifierImage from '../assets/email.jpg';
 import synapseImage from '../assets/synapse.png';
-import vehicleVisualizerImage from '../assets/vehicle-visualizer.png';
 
 const Projects = () => {
   const [copiedKey, setCopiedKey] = useState(null);
@@ -21,6 +20,16 @@ const Projects = () => {
   };
   const projects = [
     {
+      title: 'PodClipper',
+      description:
+        'Local-first pipeline that turns long-form videos into vertical 9:16 reels. Whisper transcription, Claude-driven clip selection, YOLO speaker tracking, OpenCV smart crop, and karaoke-style subtitles.',
+      iframePreview: 'https://podclipper.loukik.dev',
+      technologies: ['Python', 'Whisper', 'Claude', 'YOLO', 'OpenCV', 'FFmpeg'],
+      github: 'https://github.com/LoukikNaik/PodClipper',
+      live: 'https://podclipper.loukik.dev',
+    },
+
+    {
       title: 'Tool-Call Tactics',
       description:
         'An interactive game that lets you experience how an AI agent reasons through tool calls. Watch and play as the agent decides which tools to use and why.',
@@ -28,17 +37,6 @@ const Projects = () => {
       technologies: ['AI Agents', 'Tool Use', 'Interactive', 'Game'],
       github: 'https://github.com/LoukikNaik/tool-call-tactics',
       live: 'https://toolcalltactics.loukik.dev',
-    },
-
-    {
-      title: '3D Vehicle Visualizer',
-      description:
-        'Browser-based 3D vehicle viewer with GLB model loading, REST-synced speed, brake lights, and door controls. Per-model presets saved on a FastAPI backend.',
-      apiKey: 'M2QtdmVoaWNsZS12aXN1YWxpemVyLXByb2R1Y3Rpb24udXAucmFpbHdheS5hcHA=',
-      image: vehicleVisualizerImage,
-      technologies: ['React', 'Three.js', 'React Three Fiber', 'FastAPI', 'Python', 'Docker', 'Vite', 'REST API'],
-      github: 'https://github.com/LoukikNaik/3D-Vehicle-Visualizer',
-      live: 'https://simulator.loukik.dev',
     },
 
     {

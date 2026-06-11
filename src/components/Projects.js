@@ -20,6 +20,16 @@ const Projects = () => {
   };
   const projects = [
     {
+      title: 'DraftIn',
+      description:
+        'Keyboard-driven LinkedIn outreach drafter. Alt+K captures any LinkedIn page into a buffer, Alt+L drafts a personalized message via your ChatGPT subscription, and the result lands on your clipboard ready to paste. Local Node server, Chrome MV3 extension, no API key, no SaaS.',
+      iframePreview: 'https://draftin.loukik.dev',
+      technologies: ['Chrome MV3', 'Node.js', 'GPT Vision', 'Remotion', 'Vite'],
+      github: 'https://github.com/LoukikNaik/DraftIn',
+      live: 'https://draftin.loukik.dev',
+    },
+
+    {
       title: 'PodClipper',
       description:
         'Local-first pipeline that turns long-form videos into vertical 9:16 reels. Whisper transcription, Claude-driven clip selection, YOLO speaker tracking, OpenCV smart crop, and karaoke-style subtitles.',

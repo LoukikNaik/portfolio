@@ -20,6 +20,16 @@ const Projects = () => {
   };
   const projects = [
     {
+      title: 'Verdict',
+      description:
+        'Synthetic market research agent. Roleplays a panel of synthetic personas reacting to a product variant, scores 1–5 purchase intent via Claude, web-searches live market context, clusters qualitative themes, and writes an executive brief. Multi-turn interviews, A/B variant compare, per-sim token + cost observability.',
+      iframePreview: 'https://verdict.loukik.dev',
+      technologies: ['FastAPI', 'Claude Opus', 'Sonnet 4.6', 'React', 'Temporal', 'SQLModel'],
+      github: 'https://github.com/LoukikNaik/verdict',
+      live: 'https://verdict.loukik.dev',
+    },
+
+    {
       title: 'DraftIn',
       description:
         'Keyboard-driven LinkedIn outreach drafter. Alt+K captures any LinkedIn page into a buffer, Alt+L drafts a personalized message via your ChatGPT subscription, and the result lands on your clipboard ready to paste. Local Node server, Chrome MV3 extension, no API key, no SaaS.',

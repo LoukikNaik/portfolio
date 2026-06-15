@@ -21,8 +21,24 @@ const Projects = () => {
   const projects = [
     {
       title: 'Verdict',
-      description:
-        'Synthetic market research agent. Roleplays a panel of synthetic personas reacting to a product variant, scores 1–5 purchase intent via Claude, web-searches live market context, clusters qualitative themes, and writes an executive brief. Multi-turn interviews, A/B variant compare, per-sim token + cost observability.',
+      description: (
+        <>
+          What if you could run a focus group in 90 seconds? Claude personas react to your product, 1–5 purchase intent rolls in, web-search adds live market context, and an exec brief drops at the end. See what 200 to 2,000 random buyers think about your product before you ship.
+          <br />
+          <span className="text-xs opacity-75">
+            Inspired by{' '}
+            <a
+              href="https://arxiv.org/abs/2510.08338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:opacity-100"
+            >
+              LLMs Reproduce Purchase Intent
+            </a>{' '}
+            (PyMC × Colgate, 2025).
+          </span>
+        </>
+      ),
       iframePreview: 'https://verdict.loukik.dev',
       technologies: ['FastAPI', 'Claude Opus', 'Sonnet 4.6', 'React', 'Temporal', 'SQLModel'],
       github: 'https://github.com/LoukikNaik/verdict',

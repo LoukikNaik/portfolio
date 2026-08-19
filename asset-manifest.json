@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.01838fca.css",
-    "main.js": "/static/js/main.4e28d3ef.js",
+    "main.js": "/static/js/main.1843bfc4.js",
     "static/media/tesla.png": "/static/media/tesla.c696c3b349efd8afacbb.png",
     "static/media/loukik.jpeg": "/static/media/loukik.7485862c4a8d411f0a54.jpeg",
     "static/media/email.jpg": "/static/media/email.a8c80d9db912e720252e.jpg",
@@ -12,13 +12,13 @@
     "static/media/yt-openfilter.jpg": "/static/media/yt-openfilter.4a5df9728b658b56ef0d.jpg",
     "static/media/medium-openfilter.png": "/static/media/medium-openfilter.edea1b4d78ab863e7c16.png",
     "static/media/synapse.png": "/static/media/synapse.90b6701a0161a617ba95.png",
-    "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.44df6b7350cc9aa7b957.pdf",
+    "static/media/Loukik_resume.pdf": "/static/media/Loukik_resume.9f7116aab7487321ccbd.pdf",
     "index.html": "/index.html",
     "main.01838fca.css.map": "/static/css/main.01838fca.css.map",
-    "main.4e28d3ef.js.map": "/static/js/main.4e28d3ef.js.map"
+    "main.1843bfc4.js.map": "/static/js/main.1843bfc4.js.map"
   },
   "entrypoints": [
     "static/css/main.01838fca.css",
-    "static/js/main.4e28d3ef.js"
+    "static/js/main.1843bfc4.js"
   ]
 }

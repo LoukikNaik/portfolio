@@ -148,7 +148,7 @@ const About = () => {
       dateRange: 'Aug 2025 - Mar 2026',
       endDate: new Date('2026-03-31'),
       title: 'Software Engineer',
-      subtitle: 'Eudia (Legal AI Startup, Series A)',
+      subtitle: 'Eudia (Legal AI Startup, $105M Series A)',
       url: 'https://www.eudia.com',
       logo: logoEudia,
       description:

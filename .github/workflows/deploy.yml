@@ -61,8 +61,8 @@ jobs:
           mkdir -p resume-site
           cp src/assets/Loukik_resume.pdf resume-site/resume.pdf
           cp public/favicon.ico resume-site/favicon.ico
-          printf '/ /resume.pdf 200\n' > resume-site/_redirects
-          printf '/\n  Content-Disposition: inline; filename="Loukik_Naik_Resume.pdf"\n/resume.pdf\n  Content-Disposition: inline; filename="Loukik_Naik_Resume.pdf"\n' > resume-site/_headers
+          cp resume/index.html resume/index.css resume-site/
+          printf '/resume.pdf\n  Content-Disposition: inline; filename="Loukik_Naik_Resume.pdf"\n' > resume-site/_headers
 
       # Create the loukik-resume Pages project (production branch: main)
       # and attach resume.loukik.dev in its Custom domains settings first.

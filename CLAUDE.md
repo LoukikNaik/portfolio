@@ -34,6 +34,9 @@ worker/
   wrangler.toml       — KV + D1 bindings
   schema.sql          — D1 schema (events table with location columns)
   vitest.config.js    — Test config
+resume/
+  index.html          — Standalone full-screen PDF embed with portfolio favicon
+  index.css           — Resume embed layout and fallback link styles
 ```
 
 ## Commands
@@ -58,11 +61,13 @@ npx wrangler secret put SECRET_NAME   # Set a Worker secret
 
 ## Resume PDF deployment
 
-`.github/workflows/deploy.yml` includes an independent `deploy-resume` job. It uploads only
-`src/assets/Loukik_resume.pdf`, `public/favicon.ico`, and generated Pages routing/header files to the
-`loukik-resume` Cloudflare Pages project. `/` serves the PDF inline via a 200 rewrite;
-React is not included. The existing `loukik.dev/resume` React page is unchanged.
-The favicon matches the portfolio; native PDF viewers may choose their own tab icon.
+`.github/workflows/deploy.yml` includes an independent `deploy-resume` job. It uploads
+`src/assets/Loukik_resume.pdf`, `public/favicon.ico`, the static `resume/` HTML/CSS,
+and a generated Pages headers file to the `loukik-resume` Cloudflare Pages project.
+`/` serves a lightweight HTML page with the portfolio favicon and a full-screen PDF
+embed. `/resume.pdf` remains the direct PDF URL, with inline disposition. Browsers
+without embedded PDF support get a direct link. React is not included. The existing
+`loukik.dev/resume` React page is unchanged.
 
 One-time setup:
 1. Create a Cloudflare Pages Direct Upload project named `loukik-resume`, with production branch `main`.

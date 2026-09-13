@@ -59,9 +59,10 @@ npx wrangler secret put SECRET_NAME   # Set a Worker secret
 ## Resume PDF deployment
 
 `.github/workflows/deploy.yml` includes an independent `deploy-resume` job. It uploads only
-`src/assets/Loukik_resume.pdf` and generated Pages routing/header files to the
+`src/assets/Loukik_resume.pdf`, `public/favicon.ico`, and generated Pages routing/header files to the
 `loukik-resume` Cloudflare Pages project. `/` serves the PDF inline via a 200 rewrite;
 React is not included. The existing `loukik.dev/resume` React page is unchanged.
+The favicon matches the portfolio; native PDF viewers may choose their own tab icon.
 
 One-time setup:
 1. Create a Cloudflare Pages Direct Upload project named `loukik-resume`, with production branch `main`.

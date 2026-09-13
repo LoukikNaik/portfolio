@@ -1,9 +1,10 @@
-name: Deploy to GitHub Pages
+name: Deploy portfolio and resume
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -40,4 +41,33 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build
-          branch: gh-pages 
+          branch: gh-pages
+
+  deploy-resume:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    concurrency:
+      group: resume-pages-production
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare PDF site
+        run: |
+          mkdir -p resume-site
+          cp src/assets/Loukik_resume.pdf resume-site/resume.pdf
+          printf '/ /resume.pdf 200\n' > resume-site/_redirects
+          printf '/*\n  Content-Disposition: inline; filename="Loukik_Naik_Resume.pdf"\n' > resume-site/_headers
+
+      # Create the loukik-resume Pages project (production branch: main)
+      # and attach resume.loukik.dev in its Custom domains settings first.
+      - name: Deploy PDF to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy resume-site --project-name=loukik-resume --branch=main

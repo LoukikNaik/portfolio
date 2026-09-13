@@ -6,7 +6,7 @@ Personal portfolio for Loukik Naik. Live at `loukik.dev`.
 
 - **Frontend:** React 18 (CRA), Tailwind CSS 3.4, Framer Motion, React Router v7
 - **Backend:** Cloudflare Worker with KV (cache) + D1 (analytics SQLite database)
-- **Deployment:** GitHub Pages (frontend, auto-deploys on push to `main`), Cloudflare Workers (API, manual deploy)
+- **Deployment:** GitHub Pages (frontend) + Cloudflare Pages (resume PDF), auto-deploy on push to `main`; Cloudflare Workers (API, manual deploy)
 
 ## Project Structure
 
@@ -55,6 +55,22 @@ npx wrangler d1 execute portfolio-analytics --remote --file=./schema.sql   # App
 npx wrangler d1 execute portfolio-analytics --remote --command "ALTER TABLE events ADD COLUMN foo TEXT"  # Ad-hoc migration
 npx wrangler secret put SECRET_NAME   # Set a Worker secret
 ```
+
+## Resume PDF deployment
+
+`.github/workflows/deploy.yml` includes an independent `deploy-resume` job. It uploads only
+`src/assets/Loukik_resume.pdf` and generated Pages routing/header files to the
+`loukik-resume` Cloudflare Pages project. `/` serves the PDF inline via a 200 rewrite;
+React is not included. The existing `loukik.dev/resume` React page is unchanged.
+
+One-time setup:
+1. Create a Cloudflare Pages Direct Upload project named `loukik-resume`, with production branch `main`.
+2. Add GitHub Actions repository secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`.
+   Scope the API token to the target account with Account > Cloudflare Pages > Edit permission.
+3. Add `resume.loukik.dev` through the Pages project's Custom domains settings.
+
+Push to `main` or manually run the workflow on `main` to deploy. The resume job skips
+other branches. No Cloudflare Git build is needed.
 
 ## Worker API
 
